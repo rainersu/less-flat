@@ -1,0 +1,23 @@
+markdown:         redcarpet
+highlighter:      pygments
+
+permalink:        none
+source:           jekyll_src
+destination:      docs
+host:             0.0.0.0
+port:             1101
+encoding:         UTF-8
+baseurl:          /
+url:              https://github.com/rainersu/less-grid
+Include:          [.htaccess]
+
+defaults:
+-
+scope:
+    path: "."
+    type: "page"
+values:
+    layout: "demo"
+
+author:           Rainer Su
+trademark:        less-grid&trade;

@@ -1,0 +1,47 @@
+{
+	"private": true,
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"bower_libs",
+		"test",
+		"tests",
+		"logs",
+		"**/*.log",
+		"**/*.bak",
+		"gh_pages"
+	],
+	"name": "less-grid",
+	"description": "A fast, lightweight, and powerful responsive grid system for modern web development.",
+	"version": "0.0.1",
+	"keywords": [
+		"css",
+		"less",
+		"html",
+		"javascript",
+		"responsive",
+		"front-end",
+		"framework",
+		"web"
+	],
+	"homepage": "https://github.com/rainersu/less-grid",
+	"author": {
+		"name": "Rainer Su",
+		"email": "rainersu@foxmail.com",
+		"url": "http://weibo.com/rainersu"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "https://github.com/rainersu/less-grid/blob/master/LICENSE"
+		}
+	],
+	"title": "less-grid",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rainersu/less-grid.git"
+	},
+	"dependencies": {},
+	"devDependencies": {}
+}

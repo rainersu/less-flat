@@ -1,0 +1,47 @@
+{
+  "name": "less-grid",
+  "description": "A fast, lightweight, and powerful responsive grid system for modern web development.",
+  "version": "0.0.1",
+  "keywords": [
+    "css",
+    "less",
+    "html",
+    "javascript",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "https://github.com/rainersu/less-grid",
+  "author": {
+    "name": "Rainer Su",
+    "email": "rainersu@foxmail.com",
+    "url": "http://weibo.com/rainersu"
+  },
+  "private": "true",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/rainersu/less-grid/blob/master/LICENSE"
+    }
+  ],
+  "title": "less-grid",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rainersu/less-grid.git"
+  },
+  "bugs": "https://github.com/rainersu/less-grid/issues",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^1.0.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-less": "^0.11.4",
+    "grunt-newer": "^0.7.0",
+    "grunt-update-json": "^0.1.3",
+    "load-grunt-tasks": "^0.6.0",
+    "time-grunt": "^0.4.0"
+  }
+}
