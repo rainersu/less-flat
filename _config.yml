@@ -9,15 +9,7 @@ port:             1101
 encoding:         UTF-8
 baseurl:          /
 url:              https://github.com/rainersu/less-grid
-Include:          [.htaccess]
-
-defaults:
--
-scope:
-    path: "."
-    type: "page"
-values:
-    layout: "demo"
+include:          [.htaccess]
 
 author:           Rainer Su
 trademark:        less-grid&trade;

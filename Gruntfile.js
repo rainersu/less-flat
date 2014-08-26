@@ -19,7 +19,8 @@ module.exports = function(grunt) {
         less: {
             dist: {
                 files: {
-                    'dist/css/less-grid.css': 'less/less-grid.less' 
+                    'jekyll_src/css/doc.css': 'less/doc.less',
+                    'dist/css/less-grid.css': 'less/less-grid.less'
                 }
             }
         },
@@ -29,9 +30,12 @@ module.exports = function(grunt) {
                 browsers: [
                     '> 1%',
                     'last 2 versions',
-                    'Firefox ESR',
+                    'Chrome >= 1',
+                    'Opera >= 9',
+                    'ff >= 2',
+                    'ie >= 7',
                     'Opera 12.1',
-                    'ie >= 7'
+                    'Firefox ESR'
                 ]
             },
             dist: {
@@ -53,12 +57,38 @@ module.exports = function(grunt) {
             }
         },
         
+        uglify: {
+            build: {
+                options: {  
+                    beautify: true,
+                    preserveComments: true
+                },
+                files: {
+                   'dist/js/less-grid.js': ['js/less-grid.js'] 
+                }
+                
+            },
+            dist: {
+                options: {
+                    mangle: true,
+                    report: 'gzip'
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'dist/js',
+                    src: ['*.js', '!*.min.js'],
+                    dest: 'dist/js/',
+                    ext: '.min.js' 
+                }]
+            }
+        },
+        
         copy: {
             dist: {
                 files: [{
                     expand: true,
                     cwd: 'dist/',
-                    src: ['**'],
+                    src: ['**', '!*.min.*'],
                     dest: 'jekyll_src/'
                 }]
             }   
@@ -88,12 +118,13 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
     
     grunt.registerTask('default',[
+        'newer:update_json',
         'clean',
-        'newer:less',
-        'newer:autoprefixer',
-        'newer:cssmin',
-        'newer:copy',
-        'newer:update_json'
+        'less',
+        'autoprefixer',
+        'cssmin',
+        'uglify',
+        'newer:copy'
     ]);
 
 };

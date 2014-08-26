@@ -1,0 +1,110 @@
+
+@def-grid-col-count: 16;
+@def-grid-gap-width: 20px;
+
+@def-layout-width-list: 1024px, 1280px, 1440px;
+@def-layout-width: 1280px;
+
+@opt-grid-gap-width: round(@def-grid-gap-width / 2) * 2;
+@opt-layout-count: length(@def-layout-width-list);
+
+.end,
+.row:before,
+.row:after {
+    content: ".";
+    font:0/0 serif;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+
+}
+
+.end,
+.row:after {
+    clear:both;
+}
+
+.row,
+.col {
+    zoom:1;
+    display: block;
+    box-sizing: border-box;
+    margin-left: -@opt-grid-gap-width;
+}
+
+.col {
+    float: left;
+    margin-left:  @opt-grid-gap-width;
+}
+
+.box {
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.page(@layout-index) when (@layout-index > 0) {
+        
+    @layout-width: extract(@def-layout-width-list, @layout-index);
+    @max-width: @layout-width - 32;
+
+    .width() when (@def-layout-width = @layout-width) {
+        .grid(@def-grid-col-count, @opt-grid-gap-width, @max-width);       
+    }        
+    .width() when (default()) {
+        .media() when (@layout-index = @opt-layout-count) {
+            @media screen and (min-width: 1024px) {
+
+            }
+        }
+        .media() when (@layout-index = 1) {
+            @media screen and (max-width: 1024px) {
+
+            }
+        }            
+        .media() when (default()) {
+            @media screen and (min-width: 1025px) and (max-width: 1280px) {
+
+            }
+        }
+        .media();
+    }
+    .width();
+
+    .page(@layout-index - 1);
+
+}
+
+.page(@opt-layout-count);
+
+.grid(@col-count, @gap-width, @row-width) {
+    
+    @col_width: floor((@row-width - @gap-width * (@col-count - 1)) / @col-count);
+    @row_width: @col-count * (@col_width + @gap-width);
+    
+    .cell(@col-index) when (@col-index > 0) {
+        
+        @width: @col-index * @col_width + (@col-index - 1) * @gap-width;
+        
+        .col@{col-index} {
+            width: @width;
+        }
+
+        .cell(@col-index - 1);
+
+    }
+
+    .cell(@col-count);
+ 
+}
+
+@media screen and (max-width: 400px) {
+    @-ms-viewport {
+        width: 320px;
+    }
+}
+
+@-ms-viewport {
+    width: device-width;
+}
