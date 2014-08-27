@@ -2,11 +2,11 @@
 @def-grid-col-count: 16;
 @def-grid-gap-width: 20px;
 
-@def-layout-width-list: 1024px, 1280px, 1440px;
-@def-layout-width: 1280px;
+@def-layout-width: 1024px, 1280px, 1440px, 1600px;
 
 @opt-grid-gap-width: round(@def-grid-gap-width / 2) * 2;
-@opt-layout-count: length(@def-layout-width-list);
+@opt-layout-count: length(@def-layout-width);
+@opt-layout-extra-width: 32;
 
 .end,
 .row:before,
@@ -44,40 +44,6 @@
     overflow: hidden;
 }
 
-.page(@layout-index) when (@layout-index > 0) {
-        
-    @layout-width: extract(@def-layout-width-list, @layout-index);
-    @max-width: @layout-width - 32;
-
-    .width() when (@def-layout-width = @layout-width) {
-        .grid(@def-grid-col-count, @opt-grid-gap-width, @max-width);       
-    }        
-    .width() when (default()) {
-        .media() when (@layout-index = @opt-layout-count) {
-            @media screen and (min-width: 1024px) {
-
-            }
-        }
-        .media() when (@layout-index = 1) {
-            @media screen and (max-width: 1024px) {
-
-            }
-        }            
-        .media() when (default()) {
-            @media screen and (min-width: 1025px) and (max-width: 1280px) {
-
-            }
-        }
-        .media();
-    }
-    .width();
-
-    .page(@layout-index - 1);
-
-}
-
-.page(@opt-layout-count);
-
 .grid(@col-count, @gap-width, @row-width) {
     
     @col_width: floor((@row-width - @gap-width * (@col-count - 1)) / @col-count);
@@ -99,12 +65,48 @@
  
 }
 
+//.grid(@def-grid-col-count, @opt-grid-gap-width, extract(@def-layout-width, 1) - @opt-layout-extra-width);
+
+.min-media-query(@min-width) {
+    @media (min-width: @min-width) {
+        .grid(@def-grid-col-count, @opt-grid-gap-width, @min-width);
+    }    
+}
+.max-media-query(@max-width) {
+    @media (max-width: @max-width) {
+        .grid(@def-grid-col-count, @opt-grid-gap-width, @max-width);      
+    }
+}
+.mid-media-query(@max-width, @min-width) {
+    @media (min-width: @min-width) and (max-width: @max-width) {
+        .grid(@def-grid-col-count, @opt-grid-gap-width, @min-width); 
+    }    
+}
+
+.mq(@max-index, @min-index, @max-media, @min-media) when (@max-index = 1) {
+    .max-media-query(@max-media - @opt-layout-extra-width - 1);
+}
+.mq(@max-index, @min-index, @max-media, @min-media) when (@max-index > 1) and (@max-index <= @opt-layout-count) {
+    .mid-media-query(@max-media - @opt-layout-extra-width - 1, @min-media - @opt-layout-extra-width);
+}
+.mq(@max-index, @min-index, @max-media, @min-media) when (@max-index > @opt-layout-count) {
+    .min-media-query(@min-media - @opt-layout-extra-width);
+}
+
+.page(@layout-index) when (@layout-index > 0) {
+    .mq(@layout-index, @layout-index - 1, extract(@def-layout-width, @layout-index), extract(@def-layout-width, @layout-index - 1));
+    .page(@layout-index - 1);
+}
+.page(@opt-layout-count + 1);
+
+
+/*
 @media screen and (max-width: 400px) {
     @-ms-viewport {
         width: 320px;
     }
 }
-
 @-ms-viewport {
     width: device-width;
 }
+*/
