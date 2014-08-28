@@ -106,16 +106,16 @@ module.exports = function(grunt) {
                     expand: true,
                     flatten: true,
                     src: [
-                        'bower_libs/respond/dest/*.min.js',
-                        'bower_libs/jquery-1x/dist/*.min.js'
+                        'bower_libs/respond/dest/respond.min.js',
+                        'bower_libs/jquery-1x/dist/jquery.min.js'
                     ],
                     dest: 'dist/js/'                      
                 },{
                     expand: true,
                     flatten: true,
                     src: [
-                        'bower_libs/respond/dest/*.min.js',
-                        'bower_libs/jquery-1x/dist/*.min.js'
+                        'bower_libs/respond/dest/respond.min.js',
+                        'bower_libs/jquery-1x/dist/jquery.min.js'
                     ],
                     dest: 'jekyll_src/js/'                     
                 }
