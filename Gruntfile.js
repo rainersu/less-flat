@@ -8,7 +8,25 @@ module.exports = function(grunt) {
     grunt.initConfig({
         
         pkg: grunt.file.readJSON('package.json'),
-
+        
+        update_json: {
+            bower: {
+                src: 'package.json',
+                dest: 'bower.json',
+                fields: [
+                    'name',
+                    'description',     
+                    'version',
+                    'keywords',
+                    'homepage',
+                    'author',
+                    'licenses',
+                    'title',
+                    'repository'
+                ]
+            }
+        },
+        
         clean: [
             'dist/js/**/*',
             'dist/css/**/*',
@@ -20,7 +38,7 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     'jekyll_src/css/doc.css': 'less/doc.less',
-                    'dist/css/less-grid.css': 'less/less-grid.less'
+                    'jekyll_src/css/less-grid.css': 'less/less-grid.less'
                 }
             }
         },
@@ -40,7 +58,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 expand: true,
-                src: 'dist/css/*.css'
+                src: 'jekyll_src/css/*.css'
             }
         },
         
@@ -50,32 +68,31 @@ module.exports = function(grunt) {
             },
             dist: {
                 expand: true,
-                cwd: 'dist/css/',
-                src: ['*.css', '!*.min.css'],
+                cwd: 'jekyll_src/css/',
+                src: ['*.css', '!*.min.css', '!doc.css'],
                 dest: 'dist/css/',
                 ext: '.min.css'             
             }
         },
         
         uglify: {
-            build: {
-                options: {  
-                    beautify: true,
-                    preserveComments: true
+            init: {
+                options: {
+                    beautify: true
                 },
                 files: {
-                   'dist/js/less-grid.js': ['js/less-grid.js'] 
+                    'jekyll_src/js/less-grid.js': ['js/less-grid.js']
                 }
-                
             },
             dist: {
                 options: {
                     mangle: true,
+                    preserveComments: true,
                     report: 'gzip'
                 },
                 files: [{
                     expand: true,
-                    cwd: 'dist/js',
+                    cwd: 'jekyll_src/js',
                     src: ['*.js', '!*.min.js'],
                     dest: 'dist/js/',
                     ext: '.min.js' 
@@ -84,32 +101,25 @@ module.exports = function(grunt) {
         },
         
         copy: {
-            dist: {
+            init: {
                 files: [{
                     expand: true,
-                    cwd: 'dist/',
-                    src: ['**', '!*.min.*'],
-                    dest: 'jekyll_src/'
-                }]
-            }   
-        },
-                
-        update_json: {
-            bower: {
-                src: 'package.json',
-                dest: 'bower.json',
-                fields: [
-                    'name',
-                    'description',     
-                    'version',
-                    'keywords',
-                    'homepage',
-                    'author',
-                    'licenses',
-                    'title',
-                    'repository'
-                ]
-            }
+                    flatten: true,
+                    src: [
+                        'bower_libs/respond/dest/*.min.js',
+                        'bower_libs/jquery-1x/dist/*.min.js'
+                    ],
+                    dest: 'dist/js/'                      
+                },{
+                    expand: true,
+                    flatten: true,
+                    src: [
+                        'bower_libs/respond/dest/*.min.js',
+                        'bower_libs/jquery-1x/dist/*.min.js'
+                    ],
+                    dest: 'jekyll_src/js/'                     
+                }
+            ]}
         }
 
     });
@@ -118,13 +128,13 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
     
     grunt.registerTask('default',[
-        'newer:update_json',
+        'update_json',
         'clean',
         'less',
         'autoprefixer',
         'cssmin',
-        'uglify',
-        'newer:copy'
+        'copy',
+        'uglify'
     ]);
 
 };

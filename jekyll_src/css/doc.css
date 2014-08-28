@@ -11,6 +11,6 @@ body {
 .box {
   background: blue;
 }
-html.ds .col {
+.col {
   background: yellow;
 }

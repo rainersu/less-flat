@@ -43,5 +43,15 @@
 		"url": "https://github.com/rainersu/less-grid.git"
 	},
 	"dependencies": {},
-	"devDependencies": {}
+	"devDependencies": {
+		"jquery": "~2.1.1",
+		"jquery-1x": "jquery#~1",
+		"bootstrap": "~3.2.0",
+		"bootstrap-2x": "bootstrap#~2",
+		"normalize.css": "~3.0.1",
+		"normalize.css-1x": "normalize.css#v1",
+		"html5-boilerplate": "~4.3.0",
+		"html5-boilerplate-4x": "html5-boilerplate#v4",
+		"respond": "~1.4.2"
+	}
 }

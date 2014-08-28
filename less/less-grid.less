@@ -1,12 +1,23 @@
 
+@def-if-responsive: true;
+    
 @def-grid-col-count: 16;
 @def-grid-gap-width: 20px;
 
-@def-layout-width: 1024px, 1280px, 1440px, 1600px;
+@def-layout-width-list: 1024px, 1280px, 1440px;
+@def-layout-list-index: 1;
+
+@def-layout-extra-width: 0px;
 
 @opt-grid-gap-width: round(@def-grid-gap-width / 2) * 2;
-@opt-layout-count: length(@def-layout-width);
-@opt-layout-extra-width: 32;
+@opt-layout-count: length(@def-layout-width-list);
+@opt-layout-extra-width: @def-layout-extra-width + 32;
+
+@media screen and (max-width: 400px) {
+    @-ms-viewport {
+        width: 320px;
+    }
+}
 
 .end,
 .row:before,
@@ -18,7 +29,6 @@
     visibility: hidden;
     width: 0;
     height: 0;
-
 }
 
 .end,
@@ -65,7 +75,7 @@
  
 }
 
-//.grid(@def-grid-col-count, @opt-grid-gap-width, extract(@def-layout-width, 1) - @opt-layout-extra-width);
+.grid(@def-grid-col-count, @opt-grid-gap-width, extract(@def-layout-width-list, @def-layout-list-index) - @opt-layout-extra-width);
 
 .min-media-query(@min-width) {
     @media (min-width: @min-width) {
@@ -83,30 +93,21 @@
     }    
 }
 
-.mq(@max-index, @min-index, @max-media, @min-media) when (@max-index = 1) {
+.mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @def-layout-list-index) and (@max-index = 1) {
     .max-media-query(@max-media - @opt-layout-extra-width - 1);
 }
-.mq(@max-index, @min-index, @max-media, @min-media) when (@max-index > 1) and (@max-index <= @opt-layout-count) {
+.mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @def-layout-list-index) and (@max-index > 1) and (@max-index <= @opt-layout-count) {
     .mid-media-query(@max-media - @opt-layout-extra-width - 1, @min-media - @opt-layout-extra-width);
 }
-.mq(@max-index, @min-index, @max-media, @min-media) when (@max-index > @opt-layout-count) {
+.mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @def-layout-list-index) and (@max-index > @opt-layout-count) {
     .min-media-query(@min-media - @opt-layout-extra-width);
 }
 
 .page(@layout-index) when (@layout-index > 0) {
-    .mq(@layout-index, @layout-index - 1, extract(@def-layout-width, @layout-index), extract(@def-layout-width, @layout-index - 1));
+    .mq(@layout-index, @layout-index - 1, extract(@def-layout-width-list, @layout-index), extract(@def-layout-width-list, @layout-index - 1));
     .page(@layout-index - 1);
 }
-.page(@opt-layout-count + 1);
 
-
-/*
-@media screen and (max-width: 400px) {
-    @-ms-viewport {
-        width: 320px;
-    }
+& when (@def-if-responsive = true) {
+    .page(@opt-layout-count + 1);
 }
-@-ms-viewport {
-    width: device-width;
-}
-*/
