@@ -1,0 +1,104 @@
+
+@opt-grid-gap-width: round(@def-grid-gap-width / 2) * 2;
+@opt-layout-count: length(@def-layout-width-list);
+@opt-layout-extra-width: 32px;
+
+.end,
+.row:before,
+.row:after {
+    content: ".";
+    font:0/0 serif;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width:  0;
+    height: 0;
+}
+
+.end,
+.row:after {
+    clear:both;
+}
+
+.row,
+.col {
+    &:extend(
+        .ex-block,
+        .ex-border-box
+    );
+    zoom: 1;
+    margin-left: -@opt-grid-gap-width;
+}
+
+.col {
+    float: left;
+    margin-left:  @opt-grid-gap-width;
+}
+
+.box {
+    &:extend(.ex-center-block);
+}
+
+.mi-grid(@col-count, @gap-width, @row-width) {
+    
+    @col_width: floor((@row-width - @gap-width * (@col-count - 1)) / @col-count);
+    @row_width: @col-count * (@col_width + @gap-width);
+    
+    .mi-cell(@col-index) when (@col-index > 0) {
+        
+        @width: @col-index * @col_width + (@col-index - 1) * @gap-width;
+        
+        .col@{col-index} {
+            width: @width;
+        }
+
+        .mi-cell(@col-index - 1);
+
+    }
+
+    .mi-cell(@col-count);
+ 
+}
+
+@media screen and (max-width: 400px) {
+    @-ms-viewport {
+        width: 320px;
+    }
+}
+
+.mi-grid(@def-grid-col-count, @opt-grid-gap-width, extract(@def-layout-width-list, @def-layout-list-index) - @opt-layout-extra-width);
+
+.mi-min-media-query(@min-width) {
+    @media (min-width: @min-width) {
+        .mi-grid(@def-grid-col-count, @opt-grid-gap-width, @min-width);
+    }    
+}
+.mi-max-media-query(@max-width) {
+    @media (max-width: @max-width) {
+        .mi-grid(@def-grid-col-count, @opt-grid-gap-width, @max-width);      
+    }
+}
+.mi-mid-media-query(@max-width, @min-width) {
+    @media (min-width: @min-width) and (max-width: @max-width) {
+        .mi-grid(@def-grid-col-count, @opt-grid-gap-width, @min-width); 
+    }    
+}
+
+.mi-mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @def-layout-list-index) and (@max-index = 1) {
+    .mi-max-media-query(@max-media - @opt-layout-extra-width - 1);
+}
+.mi-mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @def-layout-list-index) and (@max-index > 1) and (@max-index <= @opt-layout-count) {
+    .mi-mid-media-query(@max-media - @opt-layout-extra-width - 1, @min-media - @opt-layout-extra-width);
+}
+.mi-mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @def-layout-list-index) and (@max-index > @opt-layout-count) {
+    .mi-min-media-query(@min-media - @opt-layout-extra-width);
+}
+
+.mi-page(@layout-index) when (@layout-index > 0) {
+    .mi-mq(@layout-index, @layout-index - 1, extract(@def-layout-width-list, @layout-index), extract(@def-layout-width-list, @layout-index - 1));
+    .mi-page(@layout-index - 1);
+}
+
+& when (@def-responsive = true) {
+    .mi-page(@opt-layout-count + 1);
+}

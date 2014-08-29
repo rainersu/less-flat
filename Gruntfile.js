@@ -37,7 +37,7 @@ module.exports = function(grunt) {
         less: {
             dist: {
                 files: {
-                    'jekyll_src/css/doc.css': 'less/doc.less',
+                    'jekyll_src/css/docs.css': 'less/docs/docs.less',
                     'jekyll_src/css/less-grid.css': 'less/less-grid.less'
                 }
             }
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
             dist: {
                 expand: true,
                 cwd: 'jekyll_src/css/',
-                src: ['*.css', '!*.min.css', '!doc.css'],
+                src: ['*.css', '!*.min.css', '!docs.css'],
                 dest: 'dist/css/',
                 ext: '.min.css'             
             }
