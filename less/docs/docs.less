@@ -1,24 +1,69 @@
 
 @import "../less-grid";
-@import (less) "color-scheme";
+@import "color-scheme";
 @import (reference) "pygments-manni";
 
-html,
-body {
-    border:0;
-    padding: 0;
-    margin: 0;
-    overflow:auto;
-}
-
-.row {
-    .bc-midnight-blue();
-}
-
 .box {
-    .bc-asbestos();
-}
-
-.col {
-    .bc-pumpkin();
+    &:extend(
+        .ex-code,
+        .ex-scrollless
+    );
+    &,
+    .col {
+        margin-top: @def-grid-gap-vsize;
+    }
+    .row:first-child {
+        margin-top: -@def-grid-gap-vsize;
+    }
+    &.grid01 {
+        >.row {
+            &:extend(.green-sea-bc);
+            >.col {
+                &:extend(.turquoise-bc);
+            }
+        }
+    }
+    &.grid02 {
+        >.row {
+            &:extend(.nephritis-bc);
+            >.col {
+                &:extend(.emerald-bc);
+            }
+        }
+    }
+    &.grid03 {
+        >.row {
+            &:extend(.pumpkin-bc);
+            >.col {
+                &:extend(.carrot-bc);
+            }
+        }
+    }
+    &.grid04 {
+        &:extend(.belize-hole-bc);
+        .col {
+            &:extend(.peter-river-bc);
+            .col {
+                &:extend(.orange-bc);
+                margin-bottom: 0;
+                .col {
+                    &:extend(.sun-flower-bc);
+                }
+            }
+        }
+    }
+    &.grid05 {
+        >.row {
+            &:extend(.belize-hole-bc);
+            >.col {
+                &:extend(.peter-river-bc);
+            }
+            >[class*=push] {
+                &:extend(.orange-bc);
+            }
+            >[class*=pull] {
+                &:extend(.sun-flower-bc);
+            }
+        }
+    }
 }

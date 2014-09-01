@@ -1,7 +1,10 @@
 
-@import (reference) "less-grid-conf";
-@import (reference) "less-grid/extendings";
-@import (reference) "less-grid/mixins";
+@pkg-name: ~"less-grid";
+@pkg-path: ~"@{pkg-name}/";
 
-@import "less-grid/core";
-@import "less-grid/grid";
+@import (reference) "@{pkg-name}-conf";
+@import (reference) "@{pkg-path}extendings";
+
+@import "@{pkg-path}core";
+@import "@{pkg-path}type";
+@import "@{pkg-path}grid";

@@ -1,0 +1,57 @@
+
+@def_font_face: ~"def-@{def-lang}-@{def-font-type}";
+@def-font-face: @@def_font_face;
+
+[lang|="en"],
+.en {
+    & when (@def-font-type = serif) {
+        &:extend(.ex-en-serif);
+    }
+    & when (@def-font-type = sans-serif) {
+        &:extend(.ex-en-sans-serif);
+    }
+    p&,
+    &.p {
+        word-wrap: normal;
+        word-break: normal;
+        text-align: justify;
+        text-justify: newspaper;  
+    }
+}
+.en {
+    &-serif {
+        &:extend(.ex-en-serif);
+    }
+    &-sans-serif {
+        &:extend(.ex-en-sans-serif);
+    }
+}
+
+[lang|="zh"],
+.zh {
+    & when (@def-font-type = serif) {
+        &:extend(.ex-zh-serif);
+    }
+    & when (@def-font-type = sans-serif) {
+        &:extend(.ex-zh-sans-serif);
+    }
+    p&,
+    &.p {
+        word-wrap: break-word;
+        word-break: break-all;
+        text-align: justify;
+        text-justify: distribute;
+    }
+}
+.zh {
+    &-serif {
+        &:extend(.ex-zh-serif);
+    }
+    &-sans-serif {
+        &:extend(.ex-zh-sans-serif);
+    }
+}
+
+.code {
+    &:extend(.ex-code);
+}

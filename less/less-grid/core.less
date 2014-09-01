@@ -14,7 +14,7 @@ textarea,
 optgroup {
     color: #000;
     font-size: 100%;
-    font-family: sans-serif;
+    font-family: @def-font-face;
     line-height: normal;
     .ex-no-margin();
 }
@@ -218,9 +218,7 @@ pre,
 kbd,
 code,
 samp {
-    font-family: monospace, serif;
-    _font-family: 'courier new', monospace;
-    font-size: 1em;
+    &:extend(.ex-code);
 }
 
 table {

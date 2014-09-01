@@ -1,3 +1,11 @@
 <!--<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>-->
-<script src="js/jquery.min.js"></script></body></html>
+<script src="js/jquery.min.js"></script>
+
+{% if page.asset == 'blank' %}
+  <script src="js/docs/docs.js"></script>
+{% else %}
+  <script src="js/docs/{{ page.asset }}.js"></script>
+{% endif %} 
+
+</body></html>

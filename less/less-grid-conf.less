@@ -1,8 +1,35 @@
 
-@def-responsive: true;
-    
+// --------------------------------------------------
+// global
+
+@def-responsive: true;  // bool(true|false)
+@def-lang: zh;  // enum(zh|en)  http://msdn.microsoft.com/en-us/library/ie/ms533052%28v=vs.85%29.aspx
+
+// --------------------------------------------------
+// grid
+
+@def-prefix: true;  // bool(true|false)
+@def-suffix: true;  // bool(true|false)
+@def-push: true;  // bool(true|false)
+@def-pull: true;  // bool(true|false)
+
 @def-grid-col-count: 16;
-@def-grid-gap-width: 20px;
+
+@def-grid-gap-hsize: 20px;
+@def-grid-gap-vsize: 10px;
 
 @def-layout-width-list: 768px, 1024px, 1280px, 1440px;
 @def-layout-list-index: 2;
+
+// --------------------------------------------------
+// font
+
+@def-en-sans-serif: Helvetica, "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
+@def-en-serif: Georgia, "Times New Roman", Times, serif;
+
+@def-zh-sans-serif: "Hiragino Sans GB", "WenQuanYi Micro Hei", STHeiti, "Microsoft YaHei", sans-serif;
+@def-zh-serif: NSimSun, SimSun, PMingLiU, MingLiU, \5B8B\4F53, serif;
+
+@def-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+   
+@def-font-type: sans-serif;  // enum(sans-serif|serif)  

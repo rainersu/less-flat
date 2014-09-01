@@ -97,15 +97,11 @@ input[type="checkbox"],
 input[type="radio"],
 .row,
 .col {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 hr,
 input[type="search"] {
-  -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
 }
 .box {
   margin: 0 auto;
@@ -120,9 +116,7 @@ sup,
   position: relative;
 }
 html {
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-          text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -1488,44 +1482,44 @@ p.zh,
   color: #1abc9c;
 }
 .turquoise-bc,
-.box.grid01 > .row > .col {
+#grid01 > .row > .col {
   background-color: #1abc9c;
 }
 .green-sea {
   color: #16a085;
 }
 .green-sea-bc,
-.box.grid01 > .row {
+#grid01 > .row {
   background-color: #16a085;
 }
 .emerald {
   color: #2ecc71;
 }
 .emerald-bc,
-.box.grid02 > .row > .col {
+#grid02 > .row > .col {
   background-color: #2ecc71;
 }
 .nephritis {
   color: #27ae60;
 }
 .nephritis-bc,
-.box.grid02 > .row {
+#grid02 > .row {
   background-color: #27ae60;
 }
 .peter-river {
   color: #3498db;
 }
 .peter-river-bc,
-.box.grid04 .col,
-.box.grid05 > .row > .col {
+#grid04 .col,
+#grid05 > .row > .col {
   background-color: #3498db;
 }
 .belize-hole {
   color: #2980b9;
 }
 .belize-hole-bc,
-.box.grid04,
-.box.grid05 > .row {
+#grid04,
+#grid05 > .row {
   background-color: #2980b9;
 }
 .amethyst {
@@ -1556,30 +1550,30 @@ p.zh,
   color: #f1c40f;
 }
 .sun-flower-bc,
-.box.grid04 .col .col .col,
-.box.grid05 > .row > [class*=pull] {
+#grid04 .col .col .col,
+#grid05 > .row > [class*=pull] {
   background-color: #f1c40f;
 }
 .orange {
   color: #f39c12;
 }
 .orange-bc,
-.box.grid04 .col .col,
-.box.grid05 > .row > [class*=push] {
+#grid04 .col .col,
+#grid05 > .row > [class*=push] {
   background-color: #f39c12;
 }
 .carrot {
   color: #e67e22;
 }
 .carrot-bc,
-.box.grid03 > .row > .col {
+#grid03 > .row > .col {
   background-color: #e67e22;
 }
 .pumpkin {
   color: #d35400;
 }
 .pumpkin-bc,
-.box.grid03 > .row {
+#grid03 > .row {
   background-color: #d35400;
 }
 .alizarin {
@@ -1619,12 +1613,12 @@ p.zh,
   background-color: #7f8c8d;
 }
 .box,
-.box .col {
+.col {
   margin-top: 10px;
 }
-.box .row:first-child {
+.row:first-child {
   margin-top: -10px;
 }
-.box.grid04 .col .col {
+#grid04 .col .col {
   margin-bottom: 0;
 }

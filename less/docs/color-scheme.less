@@ -1,54 +1,150 @@
-
-@turquoise:                 #1abc9c;
-@green-sea:                 #16a085;
-
-@emerald:                   #2ecc71;
-@nephritis:                 #27ae60;
-
-@peter-river:               #3498db;
-@belize-hole:               #2980b9;
-
-@amethyst:                  #9b59b6;
-@wisteria:                  #8e44ad;
-
-@wet-asphalt:               #34495e;
-@midnight-blue:             #2c3e50;
-
-@sun-flower:                #f1c40f;
-@orange:                    #f39c12;
-
-@carrot:                    #e67e22;
-@pumpkin:                   #d35400;
-
-@alizarin:                  #e74c3c;
-@pomegranate:               #c0392b;
-
-@clouds:                    #ecf0f1;
-@silver:                    #bdc3c7;
-
-@concrete:                  #95a5a6;
-@asbestos:                  #7f8c8d;
-
-@fc-swatches: emerald peter-river amethyst wet-asphalt carrot alizarin concrete;
-@bc-swatches: nephritis belize-hole wisteria midnight-blue pumpkin pomegranate asbestos;
-    
-.color-scheme(@color-index) when (@color-index > 0) {
-    
-    @fc-color: extract(@fc-swatches, @color-index);
-    @fc-value: ~"@{fc-color}";
-    @bc-color: extract(@bc-swatches, @color-index);
-    @bc-value: ~"@{bc-color}";
-    
-    .fc-@{fc-color} {
-        color: @@fc-value;
-    }
-    
-    .bc-@{bc-color} {
-        background-color: @@bc-value;
-    }
-    
-    .color-scheme(@color-index - 1);
-
+// --------------------------------------------------
+@turquoise: #1abc9c;
+.turquoise {
+    color: @turquoise;
 }
-
-.color-scheme(length(@fc-swatches));
+.turquoise-bc {
+    background-color: @turquoise;
+}
+@green-sea: #16a085;
+.green-sea {
+    color: @green-sea;
+}
+.green-sea-bc {
+    background-color: @green-sea;
+}
+// --------------------------------------------------
+@emerald: #2ecc71;
+.emerald {
+    color: @emerald;
+}
+.emerald-bc {
+    background-color: @emerald;
+}
+@nephritis: #27ae60;
+.nephritis {
+    color: @nephritis;
+}
+.nephritis-bc {
+    background-color: @nephritis;
+}
+// --------------------------------------------------
+@peter-river: #3498db;
+.peter-river {
+    color: @peter-river;
+}
+.peter-river-bc {
+    background-color: @peter-river;
+}
+@belize-hole: #2980b9;
+.belize-hole {
+    color: @belize-hole;
+}
+.belize-hole-bc {
+    background-color: @belize-hole;
+}
+// --------------------------------------------------
+@amethyst: #9b59b6;
+.amethyst {
+    color: @amethyst;
+}
+.amethyst-bc {
+    background-color: @amethyst;
+}
+@wisteria: #8e44ad;
+.wisteria {
+    color: @wisteria;
+}
+.wisteria-bc {
+    background-color: @wisteria;
+}
+// --------------------------------------------------
+@wet-asphalt: #34495e;
+.wet-asphalt {
+    color: @wet-asphalt;
+}
+.wet-asphalt-bc {
+    background-color: @wet-asphalt;
+}
+@midnight-blue: #2c3e50;
+.midnight-blue {
+    color: @midnight-blue;
+}
+.midnight-blue-bc {
+    background-color: @midnight-blue;
+}
+// --------------------------------------------------
+@sun-flower: #f1c40f;
+.sun-flower {
+    color: @sun-flower;
+}
+.sun-flower-bc {
+    background-color: @sun-flower;
+}
+@orange: #f39c12;
+.orange {
+    color: @orange;
+}
+.orange-bc {
+    background-color: @orange;
+}
+// --------------------------------------------------
+@carrot: #e67e22;
+.carrot {
+    color: @carrot;
+}
+.carrot-bc {
+    background-color: @carrot;
+}
+@pumpkin: #d35400;
+.pumpkin {
+    color: @pumpkin;
+}
+.pumpkin-bc {
+    background-color: @pumpkin;
+}
+// --------------------------------------------------
+@alizarin: #e74c3c;
+.alizarin {
+    color: @alizarin;
+}
+.alizarin-bc {
+    background-color: @alizarin;
+}
+@pomegranate: #c0392b;
+.pomegranate {
+    color: @pomegranate;
+}
+.pomegranate-bc {
+    background-color: @pomegranate;
+}
+// --------------------------------------------------
+@clouds: #ecf0f1;
+.clouds {
+    color: @clouds;
+}
+.clouds-bc {
+    background-color: @clouds;
+}
+@silver: #bdc3c7;
+.silver {
+    color: @silver;
+}
+.silver-bc {
+    background-color: @silver;
+}
+// --------------------------------------------------
+@concrete: #95a5a6;
+.concrete {
+    color: @concrete;
+}
+.concrete-bc {
+    background-color: @concrete;
+}
+@asbestos: #7f8c8d;
+.asbestos {
+    color: @asbestos;
+}
+.asbestos-bc {
+    background-color: @asbestos;
+}
