@@ -2,6 +2,30 @@
 @def_font_face: ~"def-@{def-lang}-@{def-font-type}";
 @def-font-face: @@def_font_face;
 
+& when (@def-lang = zh) {
+    .justify {
+        &:extend(.ex-zh-justify);
+    }
+    .serif {
+        &:extend(.ex-zh-serif);
+    }
+    .sans-serif {
+        &:extend(.ex-zh-sans-serif);
+    }
+}
+
+& when (@def-lang = en) {
+    .justify {
+        &:extend(.ex-en-justify);
+    }
+    .serif {
+        &:extend(.ex-en-serif);
+    }
+    .sans-serif {
+        &:extend(.ex-en-sans-serif);
+    }
+}
+
 [lang|="en"],
 .en {
     & when (@def-font-type = serif) {
@@ -10,19 +34,13 @@
     & when (@def-font-type = sans-serif) {
         &:extend(.ex-en-sans-serif);
     }
-    p&,
-    &.p {
-        word-wrap: normal;
-        word-break: normal;
-        text-align: justify;
-        text-justify: newspaper;  
+    &.justify {
+        &:extend(.ex-en-justify);
     }
-}
-.en {
-    &-serif {
+    &.serif {
         &:extend(.ex-en-serif);
     }
-    &-sans-serif {
+    &.sans-serif {
         &:extend(.ex-en-sans-serif);
     }
 }
@@ -35,23 +53,111 @@
     & when (@def-font-type = sans-serif) {
         &:extend(.ex-zh-sans-serif);
     }
-    p&,
-    &.p {
-        word-wrap: break-word;
-        word-break: break-all;
-        text-align: justify;
-        text-justify: distribute;
+    &.justify {
+        &:extend(.ex-zh-justify);
     }
-}
-.zh {
-    &-serif {
+    &.serif {
         &:extend(.ex-zh-serif);
     }
-    &-sans-serif {
+    &.sans-serif {
         &:extend(.ex-zh-sans-serif);
     }
 }
 
-.code {
+// --------------------------------------------------
+
+.code
+,pre
+,kbd
+,code
+,samp {
     &:extend(.ex-code);
+}
+
+pre {
+    &:extend(.ex-auto-scroll);
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+// --------------------------------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    &:extend(.ex-gap-bottom);
+    font-weight: 500;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+.h1
+,h1 {
+    &:extend(.ex-h1);
+}
+.h2
+,h2 {
+    &:extend(.ex-h2);
+}
+.h3
+,h3 {
+    &:extend(.ex-h3);
+}
+.h4
+,h4 {
+    &:extend(.ex-h4);
+}
+.h5
+,h5 {
+    &:extend(.ex-h5);
+}
+.h6
+,h6 {
+    &:extend(.ex-h6);
+}
+
+small {
+    &:extend(.ex-h5);
+}
+
+sub,
+sup {
+    &:extend(
+        .ex-baseline,
+        .ex-relative,
+        .ex-h6
+    );
+    line-height: 0;
+}
+sup {
+    top: -0.5em;
+}
+sub {
+    bottom: -0.25em;
+}
+
+b,
+strong {
+    &:extend(.ex-b);
+}
+
+i,
+dfn {
+    &:extend(.ex-i);
+}
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+q {
+    quotes: none;
+    &:before,
+    &:after {
+        content:   '';
+        content: none;
+    }
 }

@@ -10,21 +10,22 @@
 
 @def-prefix: true;  // bool(true|false)
 @def-suffix: true;  // bool(true|false)
-@def-push: true;  // bool(true|false)
-@def-pull: true;  // bool(true|false)
+@def-push:   true;  // bool(true|false)
+@def-pull:   true;  // bool(true|false)
 
 @def-grid-col-count: 16;
 
 @def-grid-gap-hsize: 20px;
-@def-grid-gap-vsize: 10px;
+@def-grid-gap-vsize: @def-grid-gap-hsize;
 
 @def-layout-width-list: 768px, 1024px, 1280px, 1440px;
 @def-layout-list-index: 2;
+@def-layout-subtract-width: @def-grid-gap-hsize;
 
 // --------------------------------------------------
 // font
 
-@def-en-sans-serif: Helvetica, "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
+@def-en-sans-serif: "Helvetica Neue", Helvetica, Roboto, "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
 @def-en-serif: Georgia, "Times New Roman", Times, serif;
 
 @def-zh-sans-serif: "Hiragino Sans GB", "WenQuanYi Micro Hei", STHeiti, "Microsoft YaHei", sans-serif;
@@ -32,4 +33,21 @@
 
 @def-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
    
-@def-font-type: sans-serif;  // enum(sans-serif|serif)  
+@def-font-type: sans-serif;  // enum(sans-serif|serif)
+
+@def-font-size: 14px;
+
+@def-font-size-h1: floor(@def-font-size * 2.00);
+@def-font-size-h2: floor(@def-font-size * 1.50);
+@def-font-size-h3: floor(@def-font-size * 1.17);
+@def-font-size-h4: @def-font-size;
+@def-font-size-h5:  ceil(@def-font-size * 0.83);
+@def-font-size-h6:  ceil(@def-font-size * 0.67);
+
+@def-line-height: unit(@def-grid-gap-vsize / @def-font-size); 
+
+// --------------------------------------------------
+// core
+
+@def-color: #000;
+@def-bg-color: #fff;

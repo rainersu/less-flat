@@ -1,7 +1,7 @@
 
 @opt-grid-gap-hsize: round(@def-grid-gap-hsize / 2) * 2;
 @opt-layout-count: length(@def-layout-width-list);
-@opt-layout-extra-width: 32px;
+@opt-layout-subtract-width: 32px + @def-layout-subtract-width;
 
 .end,
 .row:before,
@@ -28,20 +28,37 @@
     );
     zoom: 1;
     min-height: 1;
-    margin-left: -@opt-grid-gap-hsize;
+    margin: -@def-grid-gap-vsize 0 0 -@opt-grid-gap-hsize;
 }
 
 .col {
     &:extend(.ex-relative);
     float: left;
-    margin-left:  @opt-grid-gap-hsize;
+    margin: @def-grid-gap-vsize 0 0 @opt-grid-gap-hsize;
 }
 
 .box {
     &:extend(.ex-center-block);
 }
 
-.mi-grid(@col-count, @gap-width, @row-width) {
+hr {
+    &:extend(
+        .ex-block,
+        .ex-no-border,
+        .ex-no-margin,
+        .ex-border-box
+    );
+    color: transparent;
+    background: transparent;
+    height: @def-grid-gap-vsize;
+    &.col {
+        margin: 0;
+        height: 1px;
+        width: @def-grid-gap-vsize;
+    }
+}
+
+.mi-grid(@col-count, @gap-width, @row-width, @prefix: @def-prefix, @suffix: @def-suffix, @push: @def-push, @pull: @def-pull) {
     
     @col_width: floor((@row-width - @gap-width * (@col-count - 1)) / @col-count);
     @row_width: @col-count * (@col_width + @gap-width);
@@ -56,23 +73,23 @@
             width: @width;
         }
         & when (@col-index < @col-count) {
-            & when (@def-prefix = true) {
+            & when (@prefix = true) {
                 .prefix@{col-index} {
                     margin-left:  @fix_width;
                 }
             }
-            & when (@def-suffix = true) {
+            & when (@suffix = true) {
                 .suffix@{col-index} {
                     margin-right: @fix_width;
                 }
             }
-            & when (@def-push = true) {
-                .push@{col-index} {
+            & when (@push   = true) {
+                .push@{col-index}   {
                     left:  @push-size;
                 }
             }
-            & when (@def-pull = true) {
-                .pull@{col-index} {
+            & when (@pull   = true) {
+                .pull@{col-index}   {
                     right: @push-size;
                 }
             }
@@ -82,7 +99,7 @@
     .mi-cell(@col-count);
 }
 
-.mi-grid(@def-grid-col-count, @opt-grid-gap-hsize, extract(@def-layout-width-list, @def-layout-list-index) - @opt-layout-extra-width);
+.mi-grid(@def-grid-col-count, @opt-grid-gap-hsize, extract(@def-layout-width-list, @def-layout-list-index) - @opt-layout-subtract-width);
 
 .mi-min-media-query(@min-width) {
     @media (min-width: @min-width) {
@@ -101,13 +118,13 @@
 }
 
 .mi-mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @def-layout-list-index) and (@max-index = 1) {
-    .mi-max-media-query(@max-media - @opt-layout-extra-width - 1);
+    .mi-max-media-query(@max-media - @opt-layout-subtract-width - 1);
 }
 .mi-mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @def-layout-list-index) and (@max-index > 1) and (@max-index <= @opt-layout-count) {
-    .mi-mid-media-query(@max-media - @opt-layout-extra-width - 1, @min-media - @opt-layout-extra-width);
+    .mi-mid-media-query(@max-media - @opt-layout-subtract-width - 1, @min-media - @opt-layout-subtract-width);
 }
 .mi-mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @def-layout-list-index) and (@max-index > @opt-layout-count) {
-    .mi-min-media-query(@min-media - @opt-layout-extra-width);
+    .mi-min-media-query(@min-media - @opt-layout-subtract-width);
 }
 
 .mi-page(@layout-index) when (@layout-index > 0) {

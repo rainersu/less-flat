@@ -59,6 +59,30 @@
     font-style: italic;
 }
 
+.ex-normal {
+    font-style : normal;
+    font-weight: normal;
+}
+
+.ex-h1 {
+    font-size: @def-font-size-h1;
+}
+.ex-h2 {
+    font-size: @def-font-size-h2;
+}
+.ex-h3 {
+    font-size: @def-font-size-h3;
+}
+.ex-h4 {
+    font-size: @def-font-size-h4;
+}
+.ex-h5 {
+    font-size: @def-font-size-h5;
+}
+.ex-h6 {
+    font-size: @def-font-size-h6;
+}
+
 // --------------------------------------------------
 // overflow
 
@@ -83,6 +107,10 @@
 
 .ex-no-padding {
     padding: 0;
+}
+
+.ex-gap-bottom {
+    margin: 0 0 @def-grid-gap-vsize 0;
 }
 
 // --------------------------------------------------
@@ -112,6 +140,22 @@
 
 .ex-center {
     text-align: center;
+}
+
+.ex-en-justify {
+    text-align: justify;
+    text-justify: newspaper;  
+    word-wrap: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+.ex-zh-justify {
+    text-align: justify;
+    text-justify: distribute;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-all;
 }
 
 .ex-baseline {

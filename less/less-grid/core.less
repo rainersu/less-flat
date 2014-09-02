@@ -12,10 +12,11 @@ button,
 select,
 textarea,
 optgroup {
-    color: #000;
-    font-size: 100%;
+    color: @def-color;
+    background: @def-bg-color;
+    font-size: @def-font-size;
     font-family: @def-font-face;
-    line-height: normal;
+    line-height: @def-line-height;
     .ex-no-margin();
 }
 
@@ -72,70 +73,9 @@ mark {
     color: #000;
 }
 
-small {
-    font-size: 80%;
-}
-
-h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
-}
-
-h2 {
-    font-size: 1.5em;
-    margin: 0.83em 0;
-}
-
-h3 {
-    font-size: 1.17em;
-    margin: 1em 0;
-}
-
-h4 {
-    font-size: 1em;
-    margin: 1.33em 0;
-}
-
-h5 {
-    font-size: 0.83em;
-    margin: 1.67em 0;
-}
-
-h6 {
-    font-size: 0.67em;
-    margin: 2.33em 0;
-}
-
-sub,
-sup {
-    &:extend(
-        .ex-baseline,
-        .ex-relative
-    );
-    font-size: 75%;
-    line-height: 0;
-}
-
-sup {
-    top: -0.5em;
-}
-
-sub {
-    bottom: -0.25em;
-}
-
-abbr[title] {
-    border-bottom: 1px dotted;
-}
-
-dfn {
-    &:extend(.ex-i);
-}
-
-b,
-strong,
 optgroup {
     &:extend(.ex-b);
+    font-style: normal;
 }
 
 audio:not([controls]) {
@@ -150,22 +90,6 @@ template {
 
 svg:not(:root) {
     &:extend(.ex-scrollless);
-}
-
-hr {
-    &:extend(
-        .ex-heightless,
-        .ex-content-box
-    );
-}
-
-q {
-    quotes: none;
-    &:before,
-    &:after {
-        content:   '';
-        content: none;
-    }
 }
 
 dl,
@@ -203,22 +127,8 @@ pre {
 }
 
 html,
-textarea,
-pre {
+textarea {
     &:extend(.ex-auto-scroll);
-}
-
-pre {
-    white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-}
-
-pre,
-kbd,
-code,
-samp {
-    &:extend(.ex-code);
 }
 
 table {
