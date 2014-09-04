@@ -1,84 +1,21 @@
 
-@def_font_face: ~"def-@{def-lang}-@{def-font-type}";
-@def-font-face: @@def_font_face;
-
-& when (@def-lang = zh) {
-    .justify {
-        &:extend(.ex-zh-justify);
-    }
-    .serif {
-        &:extend(.ex-zh-serif);
-    }
-    .sans-serif {
-        &:extend(.ex-zh-sans-serif);
-    }
+.break-word {
+	&:extend(.ex-break-word);
 }
 
-& when (@def-lang = en) {
-    .justify {
-        &:extend(.ex-en-justify);
-    }
-    .serif {
-        &:extend(.ex-en-serif);
-    }
-    .sans-serif {
-        &:extend(.ex-en-sans-serif);
-    }
+.ellipsis {
+    &:extend(.ex-ellipsis);
 }
 
-[lang|="en"],
-.en {
-    & when (@def-font-type = serif) {
-        &:extend(.ex-en-serif);
-    }
-    & when (@def-font-type = sans-serif) {
-        &:extend(.ex-en-sans-serif);
-    }
-    &.justify {
-        &:extend(.ex-en-justify);
-    }
-    &.serif {
-        &:extend(.ex-en-serif);
-    }
-    &.sans-serif {
-        &:extend(.ex-en-sans-serif);
-    }
+.beautify {
+    &:extend(
+		.ex-justify,
+		.ex-break-word
+	);
 }
-
-[lang|="zh"],
-.zh {
-    & when (@def-font-type = serif) {
-        &:extend(.ex-zh-serif);
-    }
-    & when (@def-font-type = sans-serif) {
-        &:extend(.ex-zh-sans-serif);
-    }
-    &.justify {
-        &:extend(.ex-zh-justify);
-    }
-    &.serif {
-        &:extend(.ex-zh-serif);
-    }
-    &.sans-serif {
-        &:extend(.ex-zh-sans-serif);
-    }
-}
-
-// --------------------------------------------------
-
-.code
-,pre
-,kbd
-,code
-,samp {
-    &:extend(.ex-code);
-}
-
-pre {
-    &:extend(.ex-auto-scroll);
-    white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+	
+p {
+    &:extend(.ex-no-margin);
 }
 
 // --------------------------------------------------
@@ -89,7 +26,8 @@ h3,
 h4,
 h5,
 h6 {
-    &:extend(.ex-gap-bottom);
+    &:extend(.ex-no-margin);
+	line-height: 1;
     font-weight: 500;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: subpixel-antialiased;
@@ -127,10 +65,10 @@ sub,
 sup {
     &:extend(
         .ex-baseline,
-        .ex-relative,
-        .ex-h6
+        .ex-relative
     );
     line-height: 0;
+    font-size: 75%;
 }
 sup {
     top: -0.5em;
@@ -150,8 +88,27 @@ dfn {
 }
 
 abbr[title] {
+    cursor: help;
+    font-variant: none;
     border-bottom: 1px dotted;
 }
+
+mark {
+	color: @def-highlight-color;
+	background-color: @def-highlight-bg-color;	
+}
+
+::selection {
+	color: @def-highlight-color;
+	background-color: @def-highlight-bg-color;
+	text-shadow: none;
+}
+
+figure {
+    &:extend(.ex-no-margin);
+}
+
+// --------------------------------------------------
 
 q {
     quotes: none;
@@ -160,4 +117,73 @@ q {
         content:   '';
         content: none;
     }
+}
+
+blockquote {
+    &:extend(.ex-no-margin);
+}
+
+// --------------------------------------------------
+
+.code
+,pre
+,kbd
+,code
+,samp {
+    &:extend(.ex-code);
+}
+
+pre {
+    &:extend(
+		.ex-no-margin,
+		.ex-break-word,
+		.ex-auto-scroll
+	);
+    white-space: pre;
+    white-space: pre-wrap;
+}
+
+// --------------------------------------------------
+
+ul,
+ol {
+	&:extend(
+		.ex-no-margin,
+		.ex-list-indent
+	);	
+}
+
+.hl,
+.vl,
+menu {
+	&:extend(
+		.ex-no-margin,
+		.ex-no-padding
+	);
+	list-style: none inside none;
+}
+
+.hl {
+    > li {
+        &:extend(.ex-inline-block);
+    } 
+}
+
+dl,
+dd {
+	margin: 0 0  @def-grid-gap-vsize;
+}
+
+dl {
+	margin: 0 0 -@def-grid-gap-vsize;
+}
+
+dt {
+	&:extend(
+		.ex-b,
+		.ex-ellipsis
+	);
+	&.col {
+		&:extend(.ex-right);
+	}
 }

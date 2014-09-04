@@ -23,7 +23,8 @@ img,
 audio,
 video,
 canvas,
-progress {
+progress,
+.hl > li {
   vertical-align: baseline;
   *vertical-align: middle;
   display: inline-block;
@@ -33,28 +34,6 @@ progress {
 [hidden],
 template {
   display: none;
-}
-[lang|="en"],
-.en,
-[lang|="en"].sans-serif,
-.en.sans-serif {
-  font-family: "Helvetica Neue", Helvetica, Roboto, "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
-}
-.sans-serif,
-[lang|="zh"],
-.zh,
-[lang|="zh"].sans-serif,
-.zh.sans-serif {
-  font-family: "Hiragino Sans GB", "WenQuanYi Micro Hei", STHeiti, "Microsoft YaHei", sans-serif;
-}
-[lang|="en"].serif,
-.en.serif {
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
-.serif,
-[lang|="zh"].serif,
-.zh.serif {
-  font-family: NSimSun, SimSun, PMingLiU, MingLiU, \5B8B\4F53, serif;
 }
 .code,
 pre,
@@ -66,7 +45,8 @@ samp,
 }
 optgroup,
 b,
-strong {
+strong,
+dt {
   font-weight: bold;
 }
 i,
@@ -75,11 +55,11 @@ dfn {
 }
 .h1,
 h1 {
-  font-size: 28px;
+  font-size: 34px;
 }
 .h2,
 h2 {
-  font-size: 21px;
+  font-size: 20px;
 }
 .h3,
 h3 {
@@ -95,9 +75,7 @@ small {
   font-size: 12px;
 }
 .h6,
-h6,
-sub,
-sup {
+h6 {
   font-size: 10px;
 }
 svg:not(:root),
@@ -109,6 +87,19 @@ textarea,
 pre {
   overflow: auto;
 }
+.break-word,
+.beautify,
+pre {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+.ellipsis,
+dt {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 hr,
 img,
 legend {
@@ -116,21 +107,42 @@ legend {
 }
 hr,
 form,
-figure {
-  margin: 0;
-}
-td,
-th,
-legend {
-  padding: 0;
-}
+p,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
-  margin: 0 0 20px 0;
+h6,
+figure,
+blockquote,
+pre,
+ul,
+ol,
+.hl,
+.vl,
+menu {
+  margin: 0;
+}
+td,
+th,
+legend,
+.hl,
+.vl,
+menu {
+  padding: 0;
+}
+.hr,
+.hr-t {
+  margin-top: 20px;
+}
+.hr,
+.hr-b {
+  margin-bottom: 20px;
+}
+ul,
+ol {
+  padding: 0 0 0 3em;
 }
 a {
   background: transparent;
@@ -148,22 +160,12 @@ input[type="search"] {
 .box {
   margin: 0 auto;
 }
-[lang|="en"].justify,
-.en.justify {
+dt.col {
+  text-align: right;
+}
+.beautify {
   text-align: justify;
   text-justify: newspaper;
-  word-wrap: normal;
-  overflow-wrap: normal;
-  word-break: normal;
-}
-.justify,
-[lang|="zh"].justify,
-.zh.justify {
-  text-align: justify;
-  text-justify: distribute;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  word-break: break-all;
 }
 sub,
 sup {
@@ -1391,42 +1393,12 @@ a:active,
 a:hover {
   outline: 0;
 }
-mark {
-  background: #ff0;
-  color: #000;
-}
 optgroup {
   font-style: normal;
 }
 audio:not([controls]) {
   display: none;
   height: 0;
-}
-dl,
-menu,
-ol,
-ul {
-  margin: 1em 0;
-}
-dd {
-  margin: 0 0 0 40px;
-}
-menu,
-ol,
-ul {
-  padding: 0 0 0 40px;
-}
-nav ul,
-nav ol {
-  list-style: none;
-  list-style-image: none;
-}
-blockquote {
-  margin: 1em 40px;
-}
-p,
-pre {
-  margin: 1em 0;
 }
 table {
   border-collapse: collapse;
@@ -1457,6 +1429,7 @@ html input::-moz-focus-inner,
 button::-moz-focus-inner {
   border: 0;
   padding: 0;
+  outline: 0;
 }
 html input[disabled],
 button[disabled] {
@@ -1479,17 +1452,13 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
-pre {
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  line-height: 1;
   font-weight: 500;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -1497,6 +1466,7 @@ h6 {
 sub,
 sup {
   line-height: 0;
+  font-size: 75%;
 }
 sup {
   top: -0.5em;
@@ -1505,7 +1475,18 @@ sub {
   bottom: -0.25em;
 }
 abbr[title] {
+  cursor: help;
+  font-variant: none;
   border-bottom: 1px dotted;
+}
+mark {
+  color: #000000;
+  background-color: #ffff00;
+}
+::selection {
+  color: #000000;
+  background-color: #ffff00;
+  text-shadow: none;
 }
 q {
   quotes: none;
@@ -1514,6 +1495,22 @@ q:before,
 q:after {
   content: '';
   content: none;
+}
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+}
+.hl,
+.vl,
+menu {
+  list-style: none inside none;
+}
+dl,
+dd {
+  margin: 0 0 20px;
+}
+dl {
+  margin: 0 0 -20px;
 }
 .black {
   color: #000000;

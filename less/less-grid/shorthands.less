@@ -1,0 +1,348 @@
+
+// 伪选择符(Pseudo-elements & Pseudo-classes)
+//============================================================================
+
+.selection(@rules) {
+    &::-moz-selection {
+        text-shadow: none;
+        @rules();
+    }
+    &::selection {
+        text-shadow: none;
+        @rules();
+    }
+}
+
+.placeholder(@rules) {
+
+    &:-ms-input-placeholder {
+        @rules();
+    }
+    &::-webkit-input-placeholder {
+        @rules();
+	}
+    &::-moz-placeholder {
+        opacity: 1;  // https://github.com/twbs/bootstrap/pull/11526
+        @rules();
+    }
+}
+
+.fullscreen(@rules) {
+    &:fullscreen {
+        @rules();
+    }
+    &:-ms-fullscreen {
+        @rules();
+    }
+    &:-webkit-fullscreen {
+        @rules();
+    }
+    &:-moz-fullscreen {
+        @rules();
+    }
+}
+
+// 属性(CSS Style Propeties)
+//============================================================================
+// 杂项(Misc)
+//--------------------------------------
+
+.css-shorthand(@css; @ms; @rest...) {
+    & when (@ms > 0) {
+        -ms-@{css}: @rest;
+    }
+    -webkit-@{css}: @rest;
+       -moz-@{css}: @rest;
+            @{css}: @rest;
+}
+
+.image-rendering(@a: auto) {  // sharp | blur | auto
+    & when (@a =  auto) {
+        image-rendering: auto;
+        -ms-interpolation-mode: bicubic;
+    }
+    & when (@a = sharp) {
+        image-rendering: crisp-edges;
+        -ms-interpolation-mode: nearest-neighbor;
+    }
+    & when (@a =  blur) {
+        image-rendering: pixelated;
+        -ms-interpolation-mode: bicubic;
+    }
+}
+
+.user-focus(@a: ignore) {  // ignore | normal
+    -moz-user-focus: @a;
+}
+
+.tap-highlight-color(@a: rgba(0, 0, 0, 0)){
+    -webkit-tap-highlight-color: @a;
+}
+
+.box-sizing(@a: border-box) {  // content-box | padding-box | border-box
+    .css-shorthand(box-sizing; 0; @a);
+}
+
+.box-shadow(@a: none) {
+    .css-shorthand(box-shadow; 0; @a);
+}
+
+.appearance(@a: none) {
+    .css-shorthand(appearance; 0; @a);
+}
+
+.resize(@a: none) {  // none | both | horizontal | vertical
+    overflow: auto;
+    .css-shorthand(resize; 0; @a);
+}
+
+.opacity(@a: 100) {  // 1 - 100
+    *zoom: 1;
+    opacity: @a / 100;
+    filter: ~"alpha(opacity=@{a})";
+}
+
+.content-columns(@col; @gap: @grid-gap-width) {
+    .css-shorthand(column-count; 0; @col);
+    .css-shorthand(column-gap;   0; @gap);
+}
+
+// 文本(Text & Paragraph)
+//--------------------------------------
+
+.text-align-last(@a: left) {  // auto | start | end | left | right | center | justify
+    .css-shorthand(text-align-last; 0; @a);
+}
+
+.font-smooth(@a: none) {  // subpixel-antialiased | antialiased | none
+    -webkit-font-smoothing: @a;
+    & when (@a = none) {
+        font-smooth: never;
+    }
+    & when not (@a = none) {
+        font-smooth: auto;
+    }
+}
+
+.user-select(@a: none) {  // none | text | all | element
+    .css-shorthand(user-select; 1; @a);
+}
+
+.text-size-adjust(@a: auto) {  // none | auto | <percentage>
+    .css-shorthand(text-size-adjust; 1; @a);
+}
+
+.hyphens(@a: auto) {  // none | manual | auto
+    word-wrap: break-word;
+    .css-shorthand(hyphens; 1; @a);
+}
+
+// 边框(Border)
+//--------------------------------------
+
+.border-radius(@a: 0;) {
+    .css-shorthand(border-radius; 0; @a;);
+}
+
+.border-top-left-radius(@a: 0) {
+    .css-shorthand(border-top-left-radius; 0; @a);
+}
+
+.border-top-right-radius(@a: 0) {
+    .css-shorthand(border-top-right-radius; 0; @a);
+}
+
+.border-bottom-right-radius(@a: 0) {
+    .css-shorthand(border-bottom-right-radius; 0; @a);
+}
+
+.border-bottom-left-radius(@a: 0) {
+    .css-shorthand(border-bottom-left-radius; 0; @a);
+}
+
+.border-top-radius(@a: 0) {
+    .border-top-right-radius(@a);
+    .border-top-left-radius(@a);
+}
+
+.border-right-radius(@a: 0) {
+    .border-top-right-radius(@a);
+    .border-bottom-right-radius(@a);
+}
+
+.border-bottom-radius(@a: 0) {
+    .border-bottom-right-radius(@a);
+    .border-bottom-left-radius(@a);
+}
+
+.border-left-radius(@a: 0) {
+    .border-top-left-radius(@a);
+    .border-bottom-left-radius(@a);
+}
+
+// 背景(Background)
+//--------------------------------------
+
+.backface-visibility(@a: visible) {  // visible | hidden 
+    .css-shorthand(backface-visibility; 0; @a);
+}
+
+.background-clip(@a: border-box) {  // border-box | padding-box | content-box
+    .css-shorthand(background-clip; 0; @a);
+}
+
+.background-size(@a: auto auto;) {
+    .css-shorthand(background-size; 0; @a);
+}
+
+.background-origin(@a: padding-box) {  // border-box | padding-box | content-box
+    .css-shorthand(background-origin; 0; @a);
+}
+
+// 动画(Transition)
+//--------------------------------------
+
+.transition(@a: none) {
+    .css-shorthand(transition; 0; @a);
+}
+
+.transition-delay(@a: 0s) {
+    .css-shorthand(transition-delay; 0; @a);
+}
+
+.transition-duration(@a: 0s) {
+    .css-shorthand(transition-duration; 0; @a);
+}
+
+.transition-property(@a: none) {
+    .css-shorthand(transition-property; 0; @a);
+}
+
+.transition-timing-function(@a: ease) {
+    .css-shorthand(transition-timing-function; 0; @a);
+}
+
+.transition-transform(...) {
+    -webkit-transition: -webkit-transform @arguments;
+       -moz-transition: -moz-transform @arguments;
+            transition: transform @arguments;
+}
+
+.animation(@a: none) {
+    .css-shorthand(animation; 0; @a);
+}
+
+.animation-name(@a: none) {
+    .css-shorthand(animation-name; 0; @a);
+}
+
+.animation-duration(@a: 0s) {
+    .css-shorthand(animation-duration; 0; @a);
+}
+
+.animation-timing-function(@a: ease) {
+    .css-shorthand(animation-timing-function; 0; @a);
+}
+
+.animation-delay(@a: 0s) {
+    .css-shorthand(animation-delay; 0; @a);
+}
+
+.animation-iteration-count(@a: 1) {
+    .css-shorthand(animation-iteration-count; 0; @a);
+}
+
+.animation-direction(@a: normal) {
+    .css-shorthand(animation-direction; 0; @a);
+}
+
+.animation-fill-mode(@a: none) {  // none | forwards | backwards | both
+    .css-shorthand(animation-fill-mode; 0; @a);
+}
+
+// 变形(Transform)
+//--------------------------------------
+
+.transform(@a: none) {
+    .css-shorthand(transform; 1; @a);
+}
+
+.transform-origin(@a: 50% 50% 0;) {
+    .css-shorthand(transform-origin; 1; @a);
+}
+
+.transform-style(@a: flat) {  // flat | preserve-3d
+    .css-shorthand(transform-style; 1; @a);
+}
+
+.perspective(@a: none) {  // none | <length>
+    .css-shorthand(perspective; 0; @a);
+}
+
+.perspective-origin(@a: 50% 50%;) {
+    .css-shorthand(perspective-origin; 0; @a);
+}
+
+.scale(@x; @y: @x) {
+    .transform(scaleX(@x), scaleY(@y));
+}
+
+.scaleX(@a) {
+    .transform(scaleX(@a));
+}
+
+.scaleY(@a) {
+    .transform(scaleY(@a));
+}
+
+.skew(@x; @y: @x) {
+    .transform(skewX(@x), skewY(@y));
+}
+
+.skewX(@a) {
+    .transform(skewX(@a));
+}
+
+.skewY(@a) {
+    .transform(skewY(@a));
+}
+
+.rotate(@x; @y: @x) {
+    .transform(rotateX(@x), rotateY(@y));
+}
+
+.rotateX(@a) {
+    .transform(rotateX(@a));
+}
+
+.rotateY(@a) {
+    .transform(rotateY(@a));
+}
+
+.rotateZ(@a) {
+    .transform(rotateZ(@a));
+}
+
+.rotate3d(@x; @y; @z; @a) {
+    .transform(rotate3d(@x, @y, @z, @a));
+}
+
+.translate(@x; @y: @x) {
+    .transform(translateX(@x), translateY(@y));
+}
+
+.translateX(@a) {
+    .transform(translateX(@a));
+}
+
+.translateY(@a) {
+    .transform(translateY(@a));
+}
+
+.translateZ(@a) {
+    .transform(translateZ(@a));
+}
+
+.translate3d(@x; @y: @x; @z: @y) {
+    .transform(translate3d(@x, @y, @z));
+}

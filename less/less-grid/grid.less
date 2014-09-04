@@ -34,7 +34,7 @@
 .col {
     &:extend(.ex-relative);
     float: left;
-    margin: @def-grid-gap-vsize 0 0 @opt-grid-gap-hsize;
+    margin:  @def-grid-gap-vsize 0 0  @opt-grid-gap-hsize;
 }
 
 .box {
@@ -56,6 +56,16 @@ hr {
         height: 1px;
         width: @def-grid-gap-vsize;
     }
+}
+
+.hr,
+.hr-t {
+    &:extend(.ex-gap-t);
+}
+
+.hr,
+.hr-b {
+    &:extend(.ex-gap-b);
 }
 
 .mi-grid(@col-count, @gap-width, @row-width, @prefix: @def-prefix, @suffix: @def-suffix, @push: @def-push, @pull: @def-pull) {

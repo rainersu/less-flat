@@ -31,22 +31,6 @@
 // --------------------------------------------------
 // font
 
-.ex-en-sans-serif {
-    font-family: @def-en-sans-serif;
-}
-
-.ex-zh-sans-serif {
-    font-family: @def-zh-sans-serif;
-}
-
-.ex-en-serif {
-    font-family: @def-en-serif;
-}
-
-.ex-zh-serif {
-    font-family: @def-zh-serif;
-}
-
 .ex-code {
     font-family: @def-monospace;
 }
@@ -94,6 +78,24 @@
     overflow: auto;
 }
 
+.ex-break-word {
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	word-break: break-all;
+}
+
+.ex-keep-word {
+	word-wrap: normal;
+	overflow-wrap: normal;
+	word-break: normal;
+}
+
+.ex-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 // --------------------------------------------------
 // border, margin, padding
 
@@ -109,8 +111,16 @@
     padding: 0;
 }
 
-.ex-gap-bottom {
-    margin: 0 0 @def-grid-gap-vsize 0;
+.ex-gap-t {
+    margin-top   : @def-grid-gap-vsize;
+}
+
+.ex-gap-b {
+    margin-bottom: @def-grid-gap-vsize;
+}
+
+.ex-list-indent {
+	padding: 0 0 0 3em;
 }
 
 // --------------------------------------------------
@@ -142,20 +152,18 @@
     text-align: center;
 }
 
-.ex-en-justify {
-    text-align: justify;
-    text-justify: newspaper;  
-    word-wrap: normal;
-    overflow-wrap: normal;
-    word-break: normal;
+.ex-right {
+    text-align: right;
 }
 
-.ex-zh-justify {
+.ex-justify {
+    text-align: justify;
+    text-justify: newspaper;
+}
+
+.ex-justify-CJK {
     text-align: justify;
     text-justify: distribute;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    word-break: break-all;
 }
 
 .ex-baseline {

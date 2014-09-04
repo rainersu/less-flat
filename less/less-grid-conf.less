@@ -3,7 +3,6 @@
 // global
 
 @def-responsive: true;  // bool(true|false)
-@def-lang: zh;  // enum(zh|en)  http://msdn.microsoft.com/en-us/library/ie/ms533052%28v=vs.85%29.aspx
 
 // --------------------------------------------------
 // grid
@@ -25,29 +24,31 @@
 // --------------------------------------------------
 // font
 
-@def-en-sans-serif: "Helvetica Neue", Helvetica, Roboto, "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
-@def-en-serif: Georgia, "Times New Roman", Times, serif;
+@def-sans-serif: "Helvetica Neue", Helvetica, Roboto, "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
+@def-serif: Georgia, "Times New Roman", Times, serif;
 
-@def-zh-sans-serif: "Hiragino Sans GB", "WenQuanYi Micro Hei", STHeiti, "Microsoft YaHei", sans-serif;
-@def-zh-serif: NSimSun, SimSun, PMingLiU, MingLiU, \5B8B\4F53, serif;
+@def-sans-serif-CJK: "Hiragino Sans GB", "WenQuanYi Micro Hei", STHeiti, "Microsoft YaHei", sans-serif;
+@def-serif-CJK: NSimSun, SimSun, PMingLiU, MingLiU, \5B8B\4F53, serif;
 
 @def-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
    
-@def-font-type: sans-serif;  // enum(sans-serif|serif)
+@def-font-face: @def-sans-serif-CJK;
 
 @def-font-size: 14px;
 
-@def-font-size-h1: floor(@def-font-size * 2.00);
-@def-font-size-h2: floor(@def-font-size * 1.50);
-@def-font-size-h3: floor(@def-font-size * 1.17);
+@def-font-size-h1: floor(@def-font-size * 2.43);	// 34px
+@def-font-size-h2: floor(@def-font-size * 1.43);	// 20px 
+@def-font-size-h3: floor(@def-font-size * 1.15);	// 16px
 @def-font-size-h4: @def-font-size;
-@def-font-size-h5:  ceil(@def-font-size * 0.83);
-@def-font-size-h6:  ceil(@def-font-size * 0.67);
+@def-font-size-h5:  ceil(@def-font-size * 0.83);	// 12px
+@def-font-size-h6:  ceil(@def-font-size * 0.67);	// 10px
 
 @def-line-height: unit(@def-grid-gap-vsize / @def-font-size); 
 
 // --------------------------------------------------
-// core
+// color
 
 @def-color: #000;
 @def-bg-color: #fff;
+@def-highlight-color: @def-color;
+@def-highlight-bg-color: #ff0;

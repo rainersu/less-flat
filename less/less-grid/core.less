@@ -20,8 +20,7 @@ optgroup {
     .ex-no-margin();
 }
 
-form,
-figure {
+form {
     &:extend(.ex-no-margin);
 }
 
@@ -68,11 +67,6 @@ a {
     }
 }
 
-mark {
-    background: #ff0;
-    color: #000;
-}
-
 optgroup {
     &:extend(.ex-b);
     font-style: normal;
@@ -90,40 +84,6 @@ template {
 
 svg:not(:root) {
     &:extend(.ex-scrollless);
-}
-
-dl,
-menu,
-ol,
-ul {
-    margin: 1em 0;
-}
-
-dd {
-    margin: 0 0 0 40px;
-}
-
-menu,
-ol,
-ul {
-    padding: 0 0 0 40px;
-}
-
-nav {
-    ul,
-    ol {
-        list-style: none;
-        list-style-image: none;
-    }
-}
-
-blockquote {
-    margin: 1em 40px;
-}
-
-p,
-pre {
-    margin: 1em 0;
 }
 
 html,
@@ -175,6 +135,7 @@ button {
     &::-moz-focus-inner {
         border : 0;
         padding: 0;
+		outline: 0;
     }
     &[disabled] {
         cursor: default;
