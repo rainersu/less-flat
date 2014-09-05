@@ -17,9 +17,12 @@
                     o.text(p.css('width'));
                 });
             };
-        $(window).resize(fColSpan).resize();
+        $(window).bind("resize", function() {
+			fColSpan();
+		});
+		
+		fColSpan();
         
     });
     
 }(jQuery));
- 

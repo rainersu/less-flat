@@ -1,13 +1,14 @@
 
 @opt-grid-gap-hsize: round(@def-grid-gap-hsize / 2) * 2;
 @opt-layout-count: length(@def-layout-width-list);
-@opt-layout-subtract-width: 32px + @def-layout-subtract-width;
+@opt-layout-subtract-width: max(32px, @opt-grid-gap-hsize * 2);
+@opt-layout-list-index: 1;
 
 .end,
 .row:before,
 .row:after {
     content: ".";
-    font:0/0 serif;
+    font: 0/0 serif;
     display: block;
     overflow: hidden;
     visibility: hidden;
@@ -23,48 +24,31 @@
 .row,
 .col {
     &:extend(
-        .ex-block,
+        .ex-float,
         .ex-border-box
     );
     zoom: 1;
     min-height: 1;
-    margin: -@def-grid-gap-vsize 0 0 -@opt-grid-gap-hsize;
+    margin-left:   -@def-grid-gap-vsize;
 }
 
 .col {
     &:extend(.ex-relative);
     float: left;
-    margin:  @def-grid-gap-vsize 0 0  @opt-grid-gap-hsize;
+    margin-left:    @def-grid-gap-vsize;
 }
 
 .box {
     &:extend(.ex-center-block);
 }
 
-hr {
-    &:extend(
-        .ex-block,
-        .ex-no-border,
-        .ex-no-margin,
-        .ex-border-box
-    );
-    color: transparent;
-    background: transparent;
-    height: @def-grid-gap-vsize;
-    &.col {
-        margin: 0;
-        height: 1px;
-        width: @def-grid-gap-vsize;
-    }
-}
-
-.hr,
-.hr-t {
+.gap,
+.gap-t {
     &:extend(.ex-gap-t);
 }
 
-.hr,
-.hr-b {
+.gap,
+.gap-b {
     &:extend(.ex-gap-b);
 }
 
@@ -109,31 +93,31 @@ hr {
     .mi-cell(@col-count);
 }
 
-.mi-grid(@def-grid-col-count, @opt-grid-gap-hsize, extract(@def-layout-width-list, @def-layout-list-index) - @opt-layout-subtract-width);
+.mi-grid(@def-grid-col-count, @opt-grid-gap-hsize, extract(@def-layout-width-list, @opt-layout-list-index) - @opt-layout-subtract-width * 2);
 
 .mi-min-media-query(@min-width) {
     @media (min-width: @min-width) {
-        .mi-grid(@def-grid-col-count, @opt-grid-gap-hsize, @min-width);
+        .mi-grid(@def-grid-col-count, @opt-grid-gap-hsize, @min-width - @opt-layout-subtract-width);
     }    
 }
 .mi-max-media-query(@max-width) {
     @media (max-width: @max-width) {
-        .mi-grid(@def-grid-col-count, @opt-grid-gap-hsize, @max-width);      
+        .mi-grid(@def-grid-col-count, @opt-grid-gap-hsize, @max-width - @opt-layout-subtract-width);      
     }
 }
 .mi-mid-media-query(@max-width, @min-width) {
     @media (min-width: @min-width) and (max-width: @max-width) {
-        .mi-grid(@def-grid-col-count, @opt-grid-gap-hsize, @min-width); 
+        .mi-grid(@def-grid-col-count, @opt-grid-gap-hsize, @min-width - @opt-layout-subtract-width); 
     }    
 }
 
-.mi-mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @def-layout-list-index) and (@max-index = 1) {
+.mi-mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @opt-layout-list-index) and (@max-index = 1) {
     .mi-max-media-query(@max-media - @opt-layout-subtract-width - 1);
 }
-.mi-mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @def-layout-list-index) and (@max-index > 1) and (@max-index <= @opt-layout-count) {
+.mi-mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @opt-layout-list-index) and (@max-index > 1) and (@max-index <= @opt-layout-count) {
     .mi-mid-media-query(@max-media - @opt-layout-subtract-width - 1, @min-media - @opt-layout-subtract-width);
 }
-.mi-mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @def-layout-list-index) and (@max-index > @opt-layout-count) {
+.mi-mq(@max-index, @min-index, @max-media, @min-media) when not (@max-index = @opt-layout-list-index) and (@max-index > @opt-layout-count) {
     .mi-min-media-query(@min-media - @opt-layout-subtract-width);
 }
 

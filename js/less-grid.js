@@ -1,4 +1,4 @@
-
+/*
 (function() {
   if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
     var msViewportStyle = document.createElement("style");
@@ -8,3 +8,4 @@
     document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
   }
 })();
+*/

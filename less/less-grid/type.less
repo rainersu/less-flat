@@ -163,10 +163,14 @@ menu {
 	list-style: none inside none;
 }
 
-.hl {
-    > li {
-        &:extend(.ex-inline-block);
-    } 
+li {
+	menu > &,
+	.vl > & {
+		&:extend(.ex-float);
+	}
+	.hl > & {
+		&:extend(.ex-inline-block);
+	}
 }
 
 dl,

@@ -1,0 +1,46 @@
+
+.iefix-float() {
+	&:extend(.ex-float);
+}
+
+.iefix-inline-block() {
+	&:extend(.ex-inline-block);
+}
+
+.iefix-center-block(@center-child) {
+	&:extend(.ex-center);
+	@{center-child} {
+		&:extend(.ex-center-block);
+	}
+}
+
+.iefix-small-height(@height) {
+	&:extend(.ex-no-line-height);
+	height: @height;
+}
+
+.iefix-min-width  (@min-width,  @use-important: false) {
+	width:  @min-width;
+	min-width:  @min-width;
+	& when (@use-important = true) {
+		width:  auto !important;
+	}
+	& when (@use-important = false) {
+		html>body & {
+			width:  auto;
+		}
+	}
+}
+
+.iefix-min-height (@min-height, @use-important: false) {
+	height: @min-height;
+	min-height: @min-height;
+	& when (@use-important = true) {
+		height: auto !important;
+	}
+	& when (@use-important = false) {
+		html>body & {
+			height: auto;
+		}
+	}
+}

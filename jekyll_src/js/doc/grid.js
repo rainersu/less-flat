@@ -9,6 +9,8 @@
                 b.text(c.css("width"));
             });
         };
-        a(window).resize(c).resize();
+        a(window).bind("resize", function() {
+            c();
+        }), c();
     });
 }(jQuery);
