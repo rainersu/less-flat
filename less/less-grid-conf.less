@@ -41,12 +41,48 @@
 @def-font-size-h5:  ceil(@def-font-size * 0.83);	// 12px
 @def-font-size-h6:  ceil(@def-font-size * 0.67);	// 10px
 
-@def-line-height: unit(@def-grid-gap-vsize / @def-font-size); 
+@def-line-height: unit(max(@def-grid-gap-vsize, 20px) / @def-font-size); 
 
 // --------------------------------------------------
 // color
 
-@def-color: #000;
-@def-bg-color: #fff;
-@def-highlight-color: @def-color;
-@def-highlight-bg-color: #ff0;
+@def-primary-color:          @indigo-0500;
+@def-primary-color-dark:     @indigo-0700;
+@def-primary-color-light:    @indigo-0100;
+@def-primary-color-lightest: @indigo-0050;
+
+@def-accent-color:           @pink-A200;
+@def-accent-color-dark:      @pink-A400;
+@def-accent-color-light:     @pink-A100;
+@def-accent-color-lightest:  @pink-0050;
+
+@def-alpha-value-primary:    87%;
+@def-alpha-value-secondary:  54%;
+@def-alpha-value-hint:       26%;
+@def-alpha-value-divider:    12%;
+
+@def-foreground-color: @black;
+@def-background-color: @white;
+
+@def-text-color: mix(@def-foreground-color, @def-background-color, @def-alpha-value-primary);
+@def-page-color: @def-background-color;
+
+@def-selection-color: @def-foreground-color;
+@def-selection-bk-color: @def-accent-color-lightest;
+
+// --------------------------------------------------
+// mark
+
+@def-highlight-color: @def-selection-color;
+@def-highlight-bk-color: @def-selection-bk-color;
+
+// --------------------------------------------------
+// link
+
+@def-link-color: @def-primary-color;
+@def-link-active-color: @def-accent-color-dark;
+@def-link-hover-color: @def-accent-color;
+
+
+
+

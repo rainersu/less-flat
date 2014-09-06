@@ -9,7 +9,8 @@ hgroup,
 main,
 nav,
 section,
-summary {
+summary,
+.ll a {
   display: block;
 }
 input,
@@ -25,15 +26,11 @@ progress,
   vertical-align: baseline;
   *vertical-align: middle;
   display: inline-block;
-  -display: inline;
+  *display: inline;
   zoom: 1;
 }
 .row,
-.col,
-menu > li,
-.vl > li {
-  vertical-align: baseline;
-  *vertical-align: middle;
+.col {
   display: table;
   *display: inline-block;
   -display: inline;
@@ -42,6 +39,9 @@ menu > li,
 [hidden],
 template {
   display: none;
+}
+hr {
+  visibility: hidden;
 }
 .code,
 pre,
@@ -77,17 +77,14 @@ h3 {
 h4 {
   font-size: 14px;
 }
+small,
 .h5,
-h5,
-small {
+h5 {
   font-size: 12px;
 }
 .h6,
 h6 {
   font-size: 10px;
-}
-svg:not(:root) {
-  overflow: hidden;
 }
 html,
 textarea,
@@ -107,34 +104,44 @@ dt {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+svg:not(:root) {
+  overflow: hidden;
+}
+hr {
+  content: ".";
+  font: 0/0 serif;
+  overflow: hidden;
+}
 img,
-legend {
+legend,
+hr {
   border: 0;
 }
 form,
 p,
+figure,
+ul,
+ol,
+.hl,
+.vl,
+menu,
+pre,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-figure,
-blockquote,
-pre,
-ul,
-ol,
-.hl,
-.vl,
-menu {
+blockquote {
   margin: 0;
 }
-td,
-th,
 legend,
+hr,
 .hl,
 .vl,
-menu {
+menu,
+td,
+th {
   padding: 0;
 }
 .gap,
@@ -146,16 +153,26 @@ menu {
   margin-bottom: 20px;
 }
 ul,
-ol {
-  padding: 0 0 0 3em;
+ol,
+.vl .vl,
+menu .vl,
+.vl menu,
+menu menu {
+  padding: 0 0 0 2em;
 }
-a {
+a,
+a:hover,
+a:focus,
+a:active {
   background: transparent;
 }
 .row,
 .col,
+.box,
 input[type="checkbox"],
-input[type="radio"] {
+input[type="radio"],
+hr,
+.ll a {
   box-sizing: border-box;
 }
 input[type="search"] {
@@ -1141,7 +1158,7 @@ button,
 select,
 textarea,
 optgroup {
-  color: #000000;
+  color: #212121;
   background: #ffffff;
   font-size: 14px;
   font-family: "Hiragino Sans GB", "WenQuanYi Micro Hei", STHeiti, "Microsoft YaHei", sans-serif;
@@ -1151,23 +1168,12 @@ optgroup {
 img {
   -ms-interpolation-mode: bicubic;
 }
-a:focus {
-  outline: thin dotted;
-}
-a:active,
-a:hover {
-  outline: 0;
-}
 optgroup {
   font-style: normal;
 }
 audio:not([controls]) {
   display: none;
   height: 0;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
 }
 fieldset {
   border: 1px solid #c0c0c0;
@@ -1217,17 +1223,6 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1;
-  font-weight: 500;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: subpixel-antialiased;
-}
 sub,
 sup {
   line-height: 0;
@@ -1246,12 +1241,74 @@ abbr[title] {
 }
 mark {
   color: #000000;
-  background-color: #ffff00;
+  background-color: #fce4ec;
+}
+hr {
+  margin: 0;
+  *margin: -7px 0;
+  height: 20px;
 }
 ::selection {
-  color: #000000;
-  background-color: #ffff00;
   text-shadow: none;
+  color: #000000;
+  background: #fce4ec;
+}
+a {
+  color: #3f51b5;
+  text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active {
+  outline: 0;
+  text-decoration: underline;
+}
+a:hover,
+a:focus {
+  color: #ff4081;
+}
+a:active {
+  color: #f50057;
+}
+.hl,
+.vl,
+menu {
+  list-style: none;
+  list-style-image: none;
+}
+.ll > li {
+  width: 100%;
+  *width: auto;
+}
+.ll a {
+  *float: left;
+  *clear: left;
+  width: 100%;
+}
+.hl > li {
+  width: auto;
+}
+dl,
+dd {
+  margin: 0 0 20px;
+}
+dl {
+  margin: 0 0 -20px;
+}
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+  font-weight: 500;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 q {
   quotes: none;
@@ -1261,21 +1318,9 @@ q:after {
   content: '';
   content: none;
 }
-pre {
-  white-space: pre;
-  white-space: pre-wrap;
-}
-.hl,
-.vl,
-menu {
-  list-style: none inside none;
-}
-dl,
-dd {
-  margin: 0 0 20px;
-}
-dl {
-  margin: 0 0 -20px;
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 .black {
   color: #000000;
@@ -1678,7 +1723,4 @@ dl {
 .col {
   min-height: 20px;
   margin-top: 20px;
-}
-#grid04 .col .col {
-  margin-bottom: 0;
 }

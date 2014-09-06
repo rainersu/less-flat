@@ -39,17 +39,21 @@
 }
 
 .box {
-    &:extend(.ex-center-block);
+    &:extend(
+		.ex-border-box,
+		.ex-center-block
+	);
 }
 
-.gap,
-.gap-t {
-    &:extend(.ex-gap-t);
-}
-
-.gap,
-.gap-b {
-    &:extend(.ex-gap-b);
+.gap {
+	&,
+	&-t {
+	    &:extend(.ex-gap-t);
+	}
+	&,
+	&-b {
+	    &:extend(.ex-gap-b);
+	}
 }
 
 .mi-grid(@col-count, @gap-width, @row-width, @prefix: @def-prefix, @suffix: @def-suffix, @push: @def-push, @pull: @def-pull) {

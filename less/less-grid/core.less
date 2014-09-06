@@ -12,8 +12,8 @@ button,
 select,
 textarea,
 optgroup {
-    color: @def-color;
-    background: @def-bg-color;
+    color: @def-text-color;
+    background: @def-page-color;
     font-size: @def-font-size;
     font-family: @def-font-face;
     line-height: @def-line-height;
@@ -56,17 +56,6 @@ summary {
     &:extend(.ex-block);
 }
 
-a {
-    &:extend(.ex-transparent);
-    &:focus {
-        outline: thin dotted;
-    }
-    &:active,
-    &:hover {
-        outline: 0;
-    }
-}
-
 optgroup {
     &:extend(.ex-b);
     font-style: normal;
@@ -83,22 +72,12 @@ template {
 }
 
 svg:not(:root) {
-    &:extend(.ex-scrollless);
+    &:extend(.ex-no-scroll);
 }
 
 html,
 textarea {
     &:extend(.ex-auto-scroll);
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-td,
-th {
-    &:extend(.ex-no-padding);
 }
 
 fieldset {

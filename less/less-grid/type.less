@@ -14,48 +14,12 @@
 	);
 }
 	
-p {
+p,
+figure {
     &:extend(.ex-no-margin);
 }
 
 // --------------------------------------------------
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    &:extend(.ex-no-margin);
-	line-height: 1;
-    font-weight: 500;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: subpixel-antialiased;
-}
-.h1
-,h1 {
-    &:extend(.ex-h1);
-}
-.h2
-,h2 {
-    &:extend(.ex-h2);
-}
-.h3
-,h3 {
-    &:extend(.ex-h3);
-}
-.h4
-,h4 {
-    &:extend(.ex-h4);
-}
-.h5
-,h5 {
-    &:extend(.ex-h5);
-}
-.h6
-,h6 {
-    &:extend(.ex-h6);
-}
 
 small {
     &:extend(.ex-h5);
@@ -95,99 +59,28 @@ abbr[title] {
 
 mark {
 	color: @def-highlight-color;
-	background-color: @def-highlight-bg-color;	
+	background-color: @def-highlight-bk-color;	
 }
+
+// --------------------------------------------------
+
+hr {
+	&:extend(
+		.ex-hide,
+		.ex-no-font,
+		.ex-no-border,
+		.ex-no-padding,
+		.ex-border-box
+	);
+	margin:  0;
+	*margin: -7px 0;
+	height:  @def-grid-gap-vsize;
+}
+
+// --------------------------------------------------
 
 ::selection {
-	color: @def-highlight-color;
-	background-color: @def-highlight-bg-color;
 	text-shadow: none;
-}
-
-figure {
-    &:extend(.ex-no-margin);
-}
-
-// --------------------------------------------------
-
-q {
-    quotes: none;
-    &:before,
-    &:after {
-        content:   '';
-        content: none;
-    }
-}
-
-blockquote {
-    &:extend(.ex-no-margin);
-}
-
-// --------------------------------------------------
-
-.code
-,pre
-,kbd
-,code
-,samp {
-    &:extend(.ex-code);
-}
-
-pre {
-    &:extend(
-		.ex-no-margin,
-		.ex-break-word,
-		.ex-auto-scroll
-	);
-    white-space: pre;
-    white-space: pre-wrap;
-}
-
-// --------------------------------------------------
-
-ul,
-ol {
-	&:extend(
-		.ex-no-margin,
-		.ex-list-indent
-	);	
-}
-
-.hl,
-.vl,
-menu {
-	&:extend(
-		.ex-no-margin,
-		.ex-no-padding
-	);
-	list-style: none inside none;
-}
-
-li {
-	menu > &,
-	.vl > & {
-		&:extend(.ex-float);
-	}
-	.hl > & {
-		&:extend(.ex-inline-block);
-	}
-}
-
-dl,
-dd {
-	margin: 0 0  @def-grid-gap-vsize;
-}
-
-dl {
-	margin: 0 0 -@def-grid-gap-vsize;
-}
-
-dt {
-	&:extend(
-		.ex-b,
-		.ex-ellipsis
-	);
-	&.col {
-		&:extend(.ex-right);
-	}
+	color: @def-selection-color;
+	background: @def-selection-bk-color;
 }

@@ -15,11 +15,11 @@
 }
 
 .iefix-small-height(@height) {
-	&:extend(.ex-no-line-height);
+	&:extend(.ex-no-font);
 	height: @height;
 }
 
-.iefix-min-width  (@min-width,  @use-important: false) {
+.iefix-min-width (@min-width,  @use-important: false) {
 	width:  @min-width;
 	min-width:  @min-width;
 	& when (@use-important = true) {
@@ -32,7 +32,7 @@
 	}
 }
 
-.iefix-min-height (@min-height, @use-important: false) {
+.iefix-min-height(@min-height, @use-important: false) {
 	height: @min-height;
 	min-height: @min-height;
 	& when (@use-important = true) {

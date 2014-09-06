@@ -1,0 +1,72 @@
+
+ul,
+ol {
+	&:extend(
+		.ex-no-margin,
+		.ex-list-indent
+	);	
+}
+
+.vl,
+menu {
+	.vl,
+	menu {
+		&:extend(.ex-list-indent);
+	}
+}
+
+.hl,
+.vl,
+menu {
+	&:extend(
+		.ex-no-margin,
+		.ex-no-padding
+	);
+	list-style: none;
+	list-style-image: none;
+}
+
+
+.ll {
+
+		 > li {
+			  width: 100%;
+			 *width: auto;
+		 }
+	
+	a {
+		*float: left;
+		*clear: left;
+		 width: 100%;
+		&:extend(
+			.ex-block,
+			.ex-border-box
+		);
+	}
+}
+
+.hl {
+	> li {
+		width: auto;
+		&:extend(.ex-inline-block);
+	}
+}
+
+dl,
+dd {
+	margin: 0 0  @def-grid-gap-vsize;
+}
+
+dl {
+	margin: 0 0 -@def-grid-gap-vsize;
+}
+
+dt {
+	&:extend(
+		.ex-b,
+		.ex-ellipsis
+	);
+	&.col {
+		&:extend(.ex-right);
+	}
+}

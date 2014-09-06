@@ -1,0 +1,18 @@
+
+.code
+,pre
+,kbd
+,code
+,samp {
+    &:extend(.ex-code);
+}
+
+pre {
+    &:extend(
+		.ex-no-margin,
+		.ex-break-word,
+		.ex-auto-scroll
+	);
+    white-space: pre;
+    white-space: pre-wrap;
+}

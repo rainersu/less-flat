@@ -12,13 +12,11 @@
     vertical-align: baseline;
     *vertical-align: middle;
     display: inline-block;
-    -display: inline;
+    *display: inline;
     zoom: 1;
 }
 
 .ex-float {
-    vertical-align: baseline;
-    *vertical-align: middle;
 	display: table;
     *display: inline-block;
     -display: inline;
@@ -31,12 +29,6 @@
 
 .ex-hide {
     visibility: hidden;
-}
-
-.ex-no-line-height {
-	content: ".";
-	font: 0/0 serif;
-	overflow: hidden;
 }
 
 // --------------------------------------------------
@@ -81,10 +73,6 @@
 // --------------------------------------------------
 // overflow
 
-.ex-scrollless {
-    overflow: hidden;
-}
-
 .ex-auto-scroll {
     overflow: auto;
 }
@@ -110,6 +98,16 @@
 // --------------------------------------------------
 // border, margin, padding
 
+.ex-no-scroll {
+    overflow: hidden;
+}
+
+.ex-no-font {
+	content: ".";
+	font: 0/0 serif;
+	overflow: hidden;
+}
+
 .ex-no-border  {
     border: 0;
 }
@@ -131,7 +129,7 @@
 }
 
 .ex-list-indent {
-	padding: 0 0 0 3em;
+	padding: 0 0 0 2em;
 }
 
 // --------------------------------------------------
@@ -187,4 +185,8 @@
 
 .ex-relative {
     position: relative;
+}
+
+.ex-absolute {
+    position: absolute;
 }
