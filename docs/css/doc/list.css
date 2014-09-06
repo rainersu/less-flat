@@ -1345,7 +1345,9 @@ table {
 .turquoise {
   color: #1abc9c;
 }
-.turquoise-bc {
+.turquoise-bc,
+li,
+dt {
   background-color: #1abc9c;
 }
 .green-sea {
@@ -1411,7 +1413,9 @@ table {
 .orange {
   color: #f39c12;
 }
-.orange-bc {
+.orange-bc,
+li > a,
+dd {
   background-color: #f39c12;
 }
 .carrot {

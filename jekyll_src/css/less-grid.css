@@ -10,6 +10,7 @@ main,
 nav,
 section,
 summary,
+.nl a,
 .ll a {
   display: block;
 }
@@ -134,6 +135,8 @@ h6,
 blockquote {
   margin: 0;
 }
+.row,
+.col,
 legend,
 hr,
 .hl,
@@ -171,6 +174,7 @@ a:active {
 input[type="checkbox"],
 input[type="radio"],
 hr,
+.nl a,
 .ll a {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -221,10 +225,12 @@ sup {
   zoom: 1;
   min-height: 1;
   margin-left: -20px;
+  margin-top: -20px;
 }
 .col {
   float: left;
   margin-left: 20px;
+  margin-top: 20px;
 }
 .col16 {
   width: 940px;
@@ -1298,12 +1304,15 @@ menu {
 .hl > li {
   width: auto;
 }
-dl,
-dd {
-  margin: 0 0 20px;
-}
 dl {
-  margin: 0 0 -20px;
+  margin-bottom: 0;
+  margin-top: -20px;
+}
+dd {
+  margin-left: 0;
+}
+dt {
+  margin-top: 20px;
 }
 pre {
   white-space: pre;

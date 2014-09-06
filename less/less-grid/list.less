@@ -26,14 +26,20 @@ menu {
 	list-style-image: none;
 }
 
+.nl {
+	a {
+		&:extend(
+			.ex-block,
+			.ex-border-box
+		);
+	}
+}
 
 .ll {
-
-		 > li {
-			  width: 100%;
-			 *width: auto;
-		 }
-	
+	> li {
+		 width: 100%;
+		*width: auto;
+	}	
 	a {
 		*float: left;
 		*clear: left;
@@ -52,16 +58,17 @@ menu {
 	}
 }
 
-dl,
-dd {
-	margin: 0 0  @def-grid-gap-vsize;
+dl {
+	margin-bottom: 0;
+	margin-top: -@def-grid-gap-vsize;
 }
 
-dl {
-	margin: 0 0 -@def-grid-gap-vsize;
+dd {
+	margin-left: 0;
 }
 
 dt {
+	margin-top:  @def-grid-gap-vsize;
 	&:extend(
 		.ex-b,
 		.ex-ellipsis

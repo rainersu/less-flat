@@ -25,17 +25,20 @@
 .col {
     &:extend(
         .ex-float,
+		.ex-no-padding,
         .ex-border-box
     );
     zoom: 1;
     min-height: 1;
     margin-left:   -@def-grid-gap-vsize;
+	margin-top:    -@def-grid-gap-vsize;
 }
 
 .col {
     &:extend(.ex-relative);
     float: left;
     margin-left:    @def-grid-gap-vsize;
+	margin-top:     @def-grid-gap-vsize;
 }
 
 .box {

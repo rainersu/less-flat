@@ -2,6 +2,8 @@
 	"private": true,
 	"ignore": [
 		"**/.*",
+		"_config.*",
+		"jekyll_src",
 		"node_modules",
 		"bower_components",
 		"bower_libs",
