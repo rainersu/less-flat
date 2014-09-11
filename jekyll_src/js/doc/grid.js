@@ -1,6 +1,6 @@
 !function(a) {
     a(function() {
-        var b = a("<span />").prependTo(a(".col").each(function() {
+        var b = a("<span />").prependTo(a(".td").each(function() {
             var b = a(this);
             b.attr("title", b.prop("className"));
         })), c = function() {

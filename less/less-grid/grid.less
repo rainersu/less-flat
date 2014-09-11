@@ -4,9 +4,9 @@
 @opt-layout-subtract-width: max(32px, @opt-grid-gap-hsize * 2);
 @opt-layout-list-index: 1;
 
-.end,
-.row:before,
-.row:after {
+.br,
+.tr:before,
+.tr:after {
     content: ".";
     font: 0/0 serif;
     display: block;
@@ -16,13 +16,13 @@
     height: 0;
 }
 
-.end,
-.row:after {
+.br,
+.tr:after {
     clear:both;
 }
 
-.row,
-.col {
+.tr,
+.td {
     &:extend(
         .ex-float,
 		.ex-no-padding,
@@ -34,21 +34,21 @@
 	margin-top:    -@def-grid-gap-vsize;
 }
 
-.col {
+.td {
     &:extend(.ex-relative);
     float: left;
     margin-left:    @def-grid-gap-vsize;
 	margin-top:     @def-grid-gap-vsize;
 }
 
-.box {
+.tb {
     &:extend(
 		.ex-border-box,
 		.ex-center-block
 	);
 }
 
-.gap {
+.hr {
 	&,
 	&-t {
 	    &:extend(.ex-gap-t);
@@ -70,7 +70,7 @@
         @fix_width: @width + @gap-width * 2;
         @push-size: @width + @gap-width;
         
-        .col@{col-index} {
+        .td@{col-index} {
             width: @width;
         }
         & when (@col-index < @col-count) {

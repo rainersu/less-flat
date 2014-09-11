@@ -2,10 +2,10 @@
 <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>-->
 <script src="js/jquery.min.js"></script>
 
-{% if page.asset == 'blank' %}
+{% if page.js == 'blank' %}
   <script src="js/doc/demo.js"></script>
 {% else %}
-  <script src="js/doc/{{ page.asset }}.js"></script>
+  <script src="js/doc/{{ page.js }}.js"></script>
 {% endif %} 
 
 </body></html>

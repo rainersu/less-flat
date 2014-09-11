@@ -1,5 +1,6 @@
 
 // --------------------------------------------------
+// --------------------------------------------------
 // global
 
 @def-responsive: true;  // bool(true|false)
@@ -46,43 +47,47 @@
 // --------------------------------------------------
 // color
 
-@def-primary-color:          @indigo-0500;
-@def-primary-color-dark:     @indigo-0700;
-@def-primary-color-light:    @indigo-0100;
-@def-primary-color-lightest: @indigo-0050;
+@def-mix-value-primary:        87;
+@def-mix-value-secondary:      54;
+@def-mix-value-hint:           26;
+@def-mix-value-divider:        12;
+@def-mix-value-fallback:       15;
 
-@def-accent-color:           @pink-A200;
-@def-accent-color-dark:      @pink-A400;
-@def-accent-color-light:     @pink-A100;
-@def-accent-color-lightest:  @pink-0050;
+@def-gray-primary:             @asbestos;
+@def-gray-secondary:           @concrete;
+@def-gray-hint:                @silver;
+@def-gray-divider:             @clouds;
 
-@def-alpha-value-primary:    87%;
-@def-alpha-value-secondary:  54%;
-@def-alpha-value-hint:       26%;
-@def-alpha-value-divider:    12%;
+@def-color-primary:            @wet-asphalt;
+@def-color-secondary:          @turquoise;
+@def-color-accent:             @alizarin;
 
-@def-foreground-color: @black;
-@def-background-color: @white;
+@def-text-color:               @def-color-primary;
+@def-page-color:               @white;
 
-@def-text-color: mix(@def-foreground-color, @def-background-color, @def-alpha-value-primary);
-@def-page-color: @def-background-color;
+@def-highlight-color:          contrast(@def-highlight-bk-color, @def-text-color, @white);
+@def-highlight-bk-color:       @sun-flower;
 
-@def-selection-color: @def-foreground-color;
-@def-selection-bk-color: @def-accent-color-lightest;
-
-// --------------------------------------------------
-// mark
-
-@def-highlight-color: @def-selection-color;
-@def-highlight-bk-color: @def-selection-bk-color;
+@def-link-color:               @def-color-secondary;
+@def-link-active-color:        mix(@black, @def-color-secondary, @def-mix-value-fallback);
+@def-link-hover-color:         @def-color-accent;
 
 // --------------------------------------------------
-// link
+// box-size
 
-@def-link-color: @def-primary-color;
-@def-link-active-color: @def-accent-color-dark;
-@def-link-hover-color: @def-accent-color;
+@def-padding:                   6px 14px;
+@def-padding-l:                10px 22px;
+@def-padding-m:                 5px 12px;
+@def-padding-s:                 2px  6px;
 
+@def-border-radius:             6px;
+@def-border-radius-l:           8px;
+@def-border-radius-m:           4px;
+@def-border-radius-s:           3px;
 
+// --------------------------------------------------
+// --------------------------------------------------
+// button
 
+@def-btn-additional-size-list:     l, s, m;  // enum(l,m,s)|null
 

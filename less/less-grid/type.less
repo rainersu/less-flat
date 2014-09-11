@@ -13,7 +13,11 @@
 		.ex-break-word
 	);
 }
-	
+
+.em {
+	&:extend(.ex-em);
+}
+		
 p,
 figure {
     &:extend(.ex-no-margin);
@@ -59,7 +63,14 @@ abbr[title] {
 
 mark {
 	color: @def-highlight-color;
-	background-color: @def-highlight-bk-color;	
+	background: @def-highlight-bk-color;	
+}
+
+em {
+	&:extend(
+		.ex-em,
+		.ex-normal
+	);
 }
 
 // --------------------------------------------------
@@ -79,8 +90,8 @@ hr {
 
 // --------------------------------------------------
 
-::selection {
+*::selection {
 	text-shadow: none;
-	color: @def-selection-color;
-	background: @def-selection-bk-color;
+	color: @def-highlight-color;
+	background: @def-highlight-bk-color;
 }

@@ -3,9 +3,13 @@ html {
     text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	background-color: @def-page-color;
 }
 
-html,
+body {
+	&:extend(.ex-no-margin);
+}
+
 body,
 input,
 button,
@@ -13,11 +17,9 @@ select,
 textarea,
 optgroup {
     color: @def-text-color;
-    background: @def-page-color;
     font-size: @def-font-size;
     font-family: @def-font-face;
     line-height: @def-line-height;
-    .ex-no-margin();
 }
 
 form {
@@ -66,13 +68,13 @@ audio:not([controls]) {
     height: 0;
 }
 
+svg:not(:root) {
+    &:extend(.ex-no-scroll);
+}
+
 [hidden],
 template {
     &:extend(.ex-none);
-}
-
-svg:not(:root) {
-    &:extend(.ex-no-scroll);
 }
 
 html,

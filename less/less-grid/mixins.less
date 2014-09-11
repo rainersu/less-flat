@@ -1,25 +1,27 @@
 
-.iefix-float() {
+@it: !important;
+
+.mx-float() {
 	&:extend(.ex-float);
 }
 
-.iefix-inline-block() {
+.mx-inline-block() {
 	&:extend(.ex-inline-block);
 }
 
-.iefix-center-block(@center-child) {
+.mx-center-block(@center-child) {
 	&:extend(.ex-center);
 	@{center-child} {
 		&:extend(.ex-center-block);
 	}
 }
 
-.iefix-small-height(@height) {
+.mx-small-height(@height) {
 	&:extend(.ex-no-font);
 	height: @height;
 }
 
-.iefix-min-width (@min-width,  @use-important: false) {
+.mx-min-width (@min-width,  @use-important: false) {
 	width:  @min-width;
 	min-width:  @min-width;
 	& when (@use-important = true) {
@@ -32,7 +34,7 @@
 	}
 }
 
-.iefix-min-height(@min-height, @use-important: false) {
+.mx-min-height(@min-height, @use-important: false) {
 	height: @min-height;
 	min-height: @min-height;
 	& when (@use-important = true) {
