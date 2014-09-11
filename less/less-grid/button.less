@@ -1,0 +1,39 @@
+
+.btn {
+	&:extend(
+		.ex-border-box,
+		.ex-no-border,
+		.ex-center,
+		.ex-inline-block,
+		.ex-padding,
+		.ex-border-radius,
+		.ex-h4
+	);
+	
+	background: @def-color-secondary;
+	color: @white;
+	
+	&-l {
+		&:extend(
+			.ex-h3,
+			.ex-padding-l,
+			.ex-border-radius-l
+		);
+	}
+	&-m {
+		&:extend(
+			.ex-h5,
+			.ex-padding-m,
+			.ex-border-radius-m
+		);
+	}
+	&-s {
+		&:extend(
+			.ex-h6,
+			.ex-padding-s,
+			.ex-border-radius-s
+		);
+	}
+}
+
+
