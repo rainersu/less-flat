@@ -63,7 +63,10 @@ module.exports = function(grunt) {
             },
             dist: {
                 expand: true,
-                src: 'jekyll_src/css/*.css'
+                src: [
+					'jekyll_src/css/*.css',
+					'jekyll_src/css/doc/*.css'
+				]
             }
         },
         

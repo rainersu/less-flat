@@ -1,17 +1,7 @@
 
 .btn {
-	&:extend(
-		.ex-border-box,
-		.ex-no-border,
-		.ex-center,
-		.ex-inline-block,
-		.ex-padding,
-		.ex-border-radius,
-		.ex-h4
-	);
 	
-	background: @def-color-secondary;
-	color: @white;
+	.mx-btn();
 	
 	&-l {
 		&:extend(
@@ -34,6 +24,68 @@
 			.ex-border-radius-s
 		);
 	}
+	
+	color: @def-btn-color;
+	background-color: @def-btn-bk-color;
+
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+		outline: 0;
+        text-decoration : none;
+        background-image: none;
+    } 
+    &:hover,
+    &:focus {
+        color: @def-btn-color-hover;
+        background-color: @def-btn-bk-color-hover;
+    }
+    &:active{
+        color: @def-btn-color-touch;
+        background-color: @def-btn-bk-color-touch;
+    }
+    
+	& when not (@def-btn-transition = false) {
+        .transition(@def-btn-transition);
+    }
+	
 }
 
+.mx-btn-themes() when not (@def-btn-additional-themes = false) {
+	@count: length(@def-btn-additional-themes);
+	.mx-btn-theme(@i) when (@i > 0) {
+		@theme: extract(@def-btn-additional-themes, @i);
+		.btn-@{theme} {
+			color: ~"@{def-btn-color-@{theme}}";
+			background-color: ~"@{def-btn-bk-color-@{theme}}";
+		    &:hover,
+		    &:focus {
+		        color: ~"@{def-btn-color-hover-@{theme}}";
+		        background-color: ~"@{def-btn-bk-color-hover-@{theme}}";
+		    }
+		    &:active{
+		        color: ~"@{def-btn-color-touch-@{theme}}";
+		        background-color: ~"@{def-btn-bk-color-touch-@{theme}}";
+		    } 
+		}		
+		.mx-btn-theme(@i - 1);
+	}
+	.mx-btn-theme(@count);
+}
+.mx-btn-themes();
 
+& when (@def--btn-disabled-grayscale = true) {
+	.btn {
+		&.disabled,
+		&[disabled] {
+			&,
+		    &:hover,
+		    &:focus,
+		    &:active {
+				color: greyscale(@def-btn-color);
+				background-color: greyscale(@def-btn-bk-color);
+			}
+		}
+	}
+}

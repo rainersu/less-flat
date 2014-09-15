@@ -66,7 +66,7 @@
 @def-page-color:               @white;
 
 @def-highlight-color:          contrast(@def-highlight-bk-color, @def-text-color, @white);
-@def-highlight-bk-color:       @sun-flower;
+@def-highlight-bk-color:       mix(@white, @sun-flower, @def-mix-value-primary);
 
 @def-link-color:               @def-color-secondary;
 @def-link-active-color:        mix(@black, @def-color-secondary, @def-mix-value-fallback);
@@ -80,8 +80,8 @@
 @def-padding-m:                 5px 12px;
 @def-padding-s:                 2px  6px;
 
-@def-border-radius:             6px;
-@def-border-radius-l:           8px;
+@def-border-radius:             5px;
+@def-border-radius-l:           6px;
 @def-border-radius-m:           4px;
 @def-border-radius-s:           3px;
 
@@ -89,5 +89,28 @@
 // --------------------------------------------------
 // button
 
-@def-btn-additional-size-list:     l, s, m;  // enum(l,m,s)|null
+@def-btn-color:                 @white;
+@def-btn-bk-color:              @def-color-secondary;
+@def-btn-transition:            ~"color .25s linear, background-color .25s linear";  // bool(false)|str 
 
+@def-btn-color-hover:           @white;
+@def-btn-bk-color-hover:        mix(@white, @def-btn-bk-color, @def-mix-value-fallback);
+@def-btn-color-touch:           @white;
+@def-btn-bk-color-touch:        mix(@black, @def-btn-bk-color, @def-mix-value-fallback);
+
+@def--btn-disabled-grayscale:   true;  // bool(true|false) 
+@def-btn-additional-themes:     default, accent;  // bool(false)|enum(,,,)    
+
+@def-btn-color-default:                 @white;
+@def-btn-bk-color-default:              @def-color-primary;
+@def-btn-color-hover-default:           @white;
+@def-btn-bk-color-hover-default:        mix(@white, @def-btn-bk-color-default, @def-mix-value-fallback);
+@def-btn-color-touch-default:           @white;
+@def-btn-bk-color-touch-default:        mix(@black, @def-btn-bk-color-default, @def-mix-value-fallback);
+
+@def-btn-color-accent:                  @white;
+@def-btn-bk-color-accent:               @def-color-accent;
+@def-btn-color-hover-accent:            @white;
+@def-btn-bk-color-hover-accent:         mix(@white, @def-btn-bk-color-accent,  @def-mix-value-fallback);
+@def-btn-color-touch-accent:            @white;
+@def-btn-bk-color-touch-accent:         mix(@black, @def-btn-bk-color-accent,  @def-mix-value-fallback);

@@ -28,10 +28,6 @@
 // --------------------------------------------------
 // display & visibility
 
-.ex-block {
-    display: block;
-}
-
 .ex-inline-block {
     vertical-align: middle;
     display: inline-block;
@@ -46,12 +42,22 @@
     zoom: 1;	
 }
 
+.ex-block {
+    display: block;
+}
+
 .ex-none {
     display: none;
 }
 
 .ex-hide {
     visibility: hidden;
+}
+
+.ex-disabled {
+    cursor: not-allowed;
+    -moz-user-focus: ignore; 
+    .mx-opacity(@def-mix-value-hint);
 }
 
 // --------------------------------------------------
@@ -76,6 +82,13 @@
 .ex-normal {
     font-style : normal;
     font-weight: normal;
+}
+
+.ex-hn {
+	line-height: 1;
+    font-weight: 500;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: subpixel-antialiased;
 }
 
 .ex-h4 {
@@ -215,4 +228,14 @@
 
 .ex-absolute {
     position: absolute;
+}
+// --------------------------------------------------
+// cursor
+
+.ex-pointer {
+	cursor: pointer;
+}
+
+.ex-no-select {
+	user-select: none;
 }
