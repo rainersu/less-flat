@@ -86,6 +86,7 @@ module.exports = function(grunt) {
         uglify: {
             init: {
                 options: {
+					mangle: false,
                     beautify: true
                 },
                 files: [{

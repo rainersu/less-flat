@@ -1,16 +1,16 @@
-!function(a) {
-    a(function() {
-        var b = a("<span />").prependTo(a(".td").each(function() {
-            var b = a(this);
-            b.attr("title", b.prop("className"));
-        })), c = function() {
-            b.each(function() {
-                var b = a(this), c = b.parent();
-                b.text(c.css("width"));
+!function($) {
+    $(function() {
+        var aColSpan = $("<span />").prependTo($(".td").each(function() {
+            var o = $(this);
+            o.attr("title", o.prop("className"));
+        })), fColSpan = function() {
+            aColSpan.each(function() {
+                var o = $(this), p = o.parent();
+                o.text(p.css("width"));
             });
         };
-        a(window).bind("resize", function() {
-            c();
-        }), c();
+        $(window).bind("resize", function() {
+            fColSpan();
+        }), fColSpan();
     });
 }(jQuery);

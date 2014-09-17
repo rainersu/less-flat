@@ -31,20 +31,29 @@
     &,
     &:hover,
     &:focus,
-    &:active {
+    &:active  {
 		outline: 0;
         text-decoration : none;
         background-image: none;
     } 
     &:hover,
-    &:focus {
+    &:focus   {
         color: @def-btn-color-hover;
         background-color: @def-btn-bk-color-hover;
     }
-    &:active{
+    &:active  {
         color: @def-btn-color-touch;
         background-color: @def-btn-bk-color-touch;
     }
+	&.checked {
+	    &,
+	    &:hover,
+	    &:focus,
+	    &:active  {
+			color: @def-btn-color-checked;
+			background-color: @def-btn-bk-color-checked;
+	    } 		
+	} 
     
 	& when not (@def-btn-transition = false) {
         .transition(@def-btn-transition);
@@ -68,6 +77,15 @@
 		        color: ~"@{def-btn-color-touch-@{theme}}";
 		        background-color: ~"@{def-btn-bk-color-touch-@{theme}}";
 		    } 
+			&.checked {
+			    &,
+			    &:hover,
+			    &:focus,
+			    &:active  {
+					color: ~"@{def-btn-color-@{theme}-checked}";
+					background-color: ~"@{def-btn-bk-color-@{theme}-checked}";
+			    } 		
+			} 
 		}		
 		.mx-btn-theme(@i - 1);
 	}

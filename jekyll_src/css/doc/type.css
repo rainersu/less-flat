@@ -47,6 +47,7 @@ progress,
   zoom: 1;
 }
 .tr,
+.tr > li,
 .td {
   display: table;
   *display: inline-block;
@@ -199,6 +200,7 @@ blockquote {
   margin: 0;
 }
 .tr,
+.tr > li,
 .td,
 legend,
 hr,
@@ -232,6 +234,7 @@ a:active {
   background: transparent;
 }
 .tr,
+.tr > li,
 .td,
 .tb,
 input[type="checkbox"],
@@ -267,6 +270,7 @@ sub,
 sup {
   vertical-align: baseline;
 }
+.tr > li,
 .td,
 sub,
 sup {
@@ -297,12 +301,14 @@ sup {
   clear: both;
 }
 .tr,
+.tr > li,
 .td {
   zoom: 1;
   min-height: 1;
   margin-left: -20px;
   margin-top: -20px;
 }
+.tr > li,
 .td {
   float: left;
   margin-left: 20px;
@@ -1323,7 +1329,7 @@ abbr[title] {
 }
 mark {
   color: #34495e;
-  background: #f9e491;
+  background: #fdf7e0;
 }
 hr {
   margin: 0;
@@ -1333,12 +1339,12 @@ hr {
 *::-moz-selection {
   text-shadow: none;
   color: #34495e;
-  background: #f9e491;
+  background: #fdf7e0;
 }
 *::selection {
   text-shadow: none;
   color: #34495e;
-  background: #f9e491;
+  background: #fdf7e0;
 }
 a {
   color: #1abc9c;
@@ -1422,6 +1428,33 @@ q:after {
   color: #ffffff;
   background-color: #16a085;
 }
+.btn.checked,
+.btn.checked:hover,
+.btn.checked:focus,
+.btn.checked:active {
+  color: #ffffff;
+  background-color: #138b73;
+}
+.btn-grayscale {
+  color: #ffffff;
+  background-color: #95a5a6;
+}
+.btn-grayscale:hover,
+.btn-grayscale:focus {
+  color: #ffffff;
+  background-color: #a5b3b3;
+}
+.btn-grayscale:active {
+  color: #ffffff;
+  background-color: #7f8c8d;
+}
+.btn-grayscale.checked,
+.btn-grayscale.checked:hover,
+.btn-grayscale.checked:focus,
+.btn-grayscale.checked:active {
+  color: #ffffff;
+  background-color: #6e7a7b;
+}
 .btn-accent {
   color: #ffffff;
   background-color: #e74c3c;
@@ -1435,6 +1468,13 @@ q:after {
   color: #ffffff;
   background-color: #c44133;
 }
+.btn-accent.checked,
+.btn-accent.checked:hover,
+.btn-accent.checked:focus,
+.btn-accent.checked:active {
+  color: #ffffff;
+  background-color: #ab382c;
+}
 .btn-default {
   color: #ffffff;
   background-color: #34495e;
@@ -1447,6 +1487,13 @@ q:after {
 .btn-default:active {
   color: #ffffff;
   background-color: #2c3e50;
+}
+.btn-default.checked,
+.btn-default.checked:hover,
+.btn-default.checked:focus,
+.btn-default.checked:active {
+  color: #ffffff;
+  background-color: #263646;
 }
 .btn.disabled,
 .btn[disabled],
@@ -1462,6 +1509,9 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+.block {
+  display: block;
 }
 .black {
   color: #000000;
