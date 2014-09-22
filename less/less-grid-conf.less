@@ -68,10 +68,6 @@
 @def-highlight-color:          contrast(@def-highlight-bk-color, @def-text-color, @white);
 @def-highlight-bk-color:       mix(@white, @sun-flower, @def-mix-value-primary);
 
-@def-link-color:               @def-color-secondary;
-@def-link-hover-color:         @def-color-accent;
-@def-link-active-color:        mix(@black, @def-color-secondary, @def-mix-value-fallback);
-
 // --------------------------------------------------
 // box-size
 
@@ -87,11 +83,21 @@
 
 // --------------------------------------------------
 // --------------------------------------------------
+// link
+
+@def-link-color:               @def-color-secondary;
+@def-link-hover-color:         @def-color-accent;
+@def-link-active-color:        mix(@black, @def-link-hover-color, @def-mix-value-fallback);
+
+@def-link-disabled-grayscale:  true;  // bool(true|false) 
+@def-link-transition:          false;  // bool(false)|str 
+
+// --------------------------------------------------
+// --------------------------------------------------
 // button
 
 @def-btn-color:                 @white;
 @def-btn-bk-color:              @def-color-secondary;
-@def-btn-transition:            ~"color .25s linear, background-color .25s linear";  // bool(false)|str 
 
 @def-btn-color-hover:           @white;
 @def-btn-bk-color-hover:        mix(@white, @def-btn-bk-color, @def-mix-value-fallback);
@@ -100,8 +106,12 @@
 @def-btn-color-checked:         @white;
 @def-btn-bk-color-checked:      mix(@black, @def-btn-bk-color, @def-mix-value-hint);
 
-@def--btn-disabled-grayscale:   true;  // bool(true|false) 
+@def-btn-disabled-grayscale:    true;  // bool(true|false)
+@def-btn-transition:            ~"color .25s linear, background-color .25s linear";  // bool(false)|str 
+ 
 @def-btn-additional-themes:     default, accent, grayscale;  // bool(false)|enum(,,,)    
+
+// --------------------------------------------------
 
 @def-btn-color-default:                 @white;
 @def-btn-bk-color-default:              @def-color-primary;
@@ -121,11 +131,11 @@
 @def-btn-color-accent-checked:          @white;
 @def-btn-bk-color-accent-checked:       mix(@black, @def-btn-bk-color-accent, @def-mix-value-hint);
 
-@def-btn-color-grayscale:                    @white;
-@def-btn-bk-color-grayscale:                 @def-gray-secondary;
-@def-btn-color-hover-grayscale:              @white;
-@def-btn-bk-color-hover-grayscale:           mix(@white, @def-btn-bk-color-grayscale, @def-mix-value-fallback);
-@def-btn-color-touch-grayscale:              @white;
-@def-btn-bk-color-touch-grayscale:           mix(@black, @def-btn-bk-color-grayscale, @def-mix-value-fallback);
-@def-btn-color-grayscale-checked:            @white;
-@def-btn-bk-color-grayscale-checked:         mix(@black, @def-btn-bk-color-grayscale, @def-mix-value-hint);
+@def-btn-color-grayscale:               @white;
+@def-btn-bk-color-grayscale:            @def-gray-secondary;
+@def-btn-color-hover-grayscale:         @white;
+@def-btn-bk-color-hover-grayscale:      mix(@white, @def-btn-bk-color-grayscale, @def-mix-value-fallback);
+@def-btn-color-touch-grayscale:         @white;
+@def-btn-bk-color-touch-grayscale:      mix(@black, @def-btn-bk-color-grayscale, @def-mix-value-fallback);
+@def-btn-color-grayscale-checked:       @white;
+@def-btn-bk-color-grayscale-checked:    mix(@black, @def-btn-bk-color-grayscale, @def-mix-value-hint);

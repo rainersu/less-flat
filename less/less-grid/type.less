@@ -14,8 +14,18 @@
 	);
 }
 
-.em {
-	&:extend(.ex-em);
+.accent {
+	&,
+	&.a {
+		&:extend(.ex-em);
+	}
+}
+
+.grayscale {
+	&,
+	&.a {
+		&:extend(.ex-gray);
+	}
 }
 		
 p,
@@ -71,21 +81,6 @@ em {
 		.ex-em,
 		.ex-normal
 	);
-}
-
-// --------------------------------------------------
-
-hr {
-	&:extend(
-		.ex-hide,
-		.ex-no-font,
-		.ex-no-border,
-		.ex-no-padding,
-		.ex-border-box
-	);
-	margin:  0;
-	*margin: -7px 0;
-	height:  @def-grid-gap-vsize;
 }
 
 // --------------------------------------------------

@@ -54,6 +54,12 @@ progress,
   -display: inline;
   zoom: 1;
 }
+.a,
+a {
+  vertical-align: baseline;
+  display: inline;
+  zoom: 1;
+}
 article,
 aside,
 details,
@@ -77,9 +83,14 @@ template {
 hr {
   visibility: hidden;
 }
-.em,
+.accent,
+.accent.a,
 em {
   color: #e74c3c;
+}
+.grayscale,
+.grayscale.a {
+  color: #95a5a6;
 }
 .code,
 pre,
@@ -169,9 +180,11 @@ hr {
   font: 0/0 serif;
   overflow: hidden;
 }
+hr,
 img,
 legend,
-hr,
+.a,
+a,
 .btn {
   border: 0;
 }
@@ -184,6 +197,8 @@ optgroup,
 form,
 p,
 figure,
+.a,
+a,
 ul,
 ol,
 .hl,
@@ -202,8 +217,10 @@ blockquote {
 .tr,
 .tr > li,
 .td,
-legend,
 hr,
+legend,
+.a,
+a,
 .hl,
 .vl,
 menu,
@@ -227,9 +244,13 @@ menu .vl,
 menu menu {
   padding: 0 0 0 2em;
 }
+.a,
 a,
+.a:hover,
 a:hover,
+.a:focus,
 a:focus,
+.a:active,
 a:active {
   background: transparent;
 }
@@ -237,9 +258,9 @@ a:active {
 .tr > li,
 .td,
 .tb,
+hr,
 input[type="checkbox"],
 input[type="radio"],
-hr,
 .nl a,
 .ll a,
 .btn {
@@ -276,6 +297,8 @@ sub,
 sup {
   position: relative;
 }
+.a,
+a,
 .btn {
   cursor: pointer;
 }
@@ -313,6 +336,11 @@ sup {
   float: left;
   margin-left: 20px;
   margin-top: 20px;
+}
+hr {
+  margin: 0;
+  *margin: -7px 0;
+  height: 20px;
 }
 .td16 {
   width: 940px;
@@ -1331,11 +1359,6 @@ mark {
   color: #34495e;
   background: #fdf7e0;
 }
-hr {
-  margin: 0;
-  *margin: -7px 0;
-  height: 20px;
-}
 *::-moz-selection {
   text-shadow: none;
   color: #34495e;
@@ -1346,22 +1369,48 @@ hr {
   color: #34495e;
   background: #fdf7e0;
 }
+.a,
 a {
   color: #1abc9c;
   text-decoration: none;
 }
+.a:hover,
 a:hover,
+.a:focus,
 a:focus,
+.a:active,
 a:active {
-  outline: 0;
   text-decoration: underline;
+  outline: 0;
 }
+.a:hover,
 a:hover,
+.a:focus,
 a:focus {
   color: #e74c3c;
 }
+.a:active,
 a:active {
-  color: #16a085;
+  color: #c44133;
+}
+.a[disabled],
+a[disabled],
+.a.disabled,
+a.disabled,
+.a[disabled]:hover,
+a[disabled]:hover,
+.a.disabled:hover,
+a.disabled:hover,
+.a[disabled]:focus,
+a[disabled]:focus,
+.a.disabled:focus,
+a.disabled:focus,
+.a[disabled]:active,
+a[disabled]:active,
+.a.disabled:active,
+a.disabled:active {
+  text-decoration: none;
+  color: #6b6b6b;
 }
 .hl,
 .vl,
@@ -1407,9 +1456,9 @@ q:after {
   color: #ffffff;
   background-color: #1abc9c;
   -webkit-transition: color .25s linear, background-color .25s linear;
-  -moz-transition: color .25s linear, background-color .25s linear;
-  -o-transition: color .25s linear, background-color .25s linear;
-     transition: color .25s linear, background-color .25s linear;
+     -moz-transition: color .25s linear, background-color .25s linear;
+       -o-transition: color .25s linear, background-color .25s linear;
+          transition: color .25s linear, background-color .25s linear;
 }
 .btn,
 .btn:hover,

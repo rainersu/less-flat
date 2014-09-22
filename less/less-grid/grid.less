@@ -61,6 +61,19 @@
 	}
 }
 
+hr {
+	&:extend(
+		.ex-hide,
+		.ex-no-font,
+		.ex-no-border,
+		.ex-no-padding,
+		.ex-border-box
+	);
+	margin:  0;
+	*margin: -7px 0;
+	height:  @def-grid-gap-vsize;
+}
+
 .mi-grid(@col-count, @gap-width, @row-width, @prefix: @def-prefix, @suffix: @def-suffix, @push: @def-push, @pull: @def-pull) {
     
     @col_width: floor((@row-width - @gap-width * (@col-count - 1)) / @col-count);

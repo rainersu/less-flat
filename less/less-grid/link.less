@@ -1,14 +1,22 @@
 
-a {
-    &:extend(.ex-transparent);
+.a
+,a {
+    &:extend(
+		.ex-pointer,
+		.ex-no-margin,
+		.ex-no-border,
+		.ex-inline,
+		.ex-no-padding,
+		.ex-transparent
+	);
 	color: @def-link-color;
 	text-decoration: none;
 	&:hover,
 	&:focus,
 	&:active {
 	    &:extend(.ex-transparent);
-	    outline: 0;
 	    text-decoration: underline;
+	    outline: 0;
 	}
 	&:hover,
 	&:focus {      
@@ -17,4 +25,19 @@ a {
 	&:active{
 	    color: @def-link-active-color;
 	}
+	& when (@def-link-disabled-grayscale = true) {
+		&[disabled],
+		&.disabled {
+			&,
+		    &:hover,
+		    &:focus,
+		    &:active {
+				text-decoration: none;
+				color: greyscale(@def-link-color);
+			}
+		}
+	}
+	& when not (@def-link-transition = false) {
+        transition: @def-link-transition;
+    }
 }
