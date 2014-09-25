@@ -7,3 +7,5 @@ bower_libs
 node_modules
 .grunt
 .sass-cache
+.DS_Store
+.sizecache.json
