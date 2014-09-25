@@ -1,7 +1,18 @@
 
 .btn {
 	
-	.mx-btn();
+	&:extend(
+		.ex-h4,
+		.ex-border-box,
+		.ex-no-border,
+		.ex-pointer,
+		.ex-no-select,
+		.ex-inline-block,
+		.ex-center,
+		.ex-ellipsis,
+		.ex-padding,
+		.ex-border-radius
+	);
 	
 	&-l {
 		&:extend(
@@ -28,14 +39,15 @@
 	color: @def-btn-color;
 	background-color: @def-btn-bk-color;
 
-    &,
-    &:hover,
-    &:focus,
-    &:active  {
+	&,
+	&:hover,
+	&:focus,
+	&:active  {
 		outline: 0;
-        text-decoration : none;
-        background-image: none;
-    } 
+	    text-decoration : none;
+	    background-image: none;
+	}
+		
     &:hover,
     &:focus   {
         color: @def-btn-color-hover;
@@ -93,7 +105,7 @@
 }
 .mx-btn-themes();
 
-& when (@def-btn-disabled-grayscale = true) {
+& when (@def-disabled-grayscale = true) {
 	.btn {
 		&.disabled,
 		&[disabled] {

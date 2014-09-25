@@ -4,6 +4,7 @@
 // global
 
 @def-responsive: true;  // bool(true|false)
+@def-disabled-grayscale: true;  // bool(true|false)
 
 // --------------------------------------------------
 // grid
@@ -81,6 +82,8 @@
 @def-border-radius-m:           4px;
 @def-border-radius-s:           3px;
 
+@def-border-width:              2px;
+
 // --------------------------------------------------
 // --------------------------------------------------
 // link
@@ -106,7 +109,6 @@
 @def-btn-color-checked:         @white;
 @def-btn-bk-color-checked:      mix(@black, @def-btn-bk-color, @def-mix-value-hint);
 
-@def-btn-disabled-grayscale:    true;  // bool(true|false)
 @def-btn-transition:            ~"color .25s linear, background-color .25s linear";  // bool(false)|str 
  
 @def-btn-additional-themes:     default, accent, grayscale;  // bool(false)|enum(,,,)    
@@ -139,3 +141,24 @@
 @def-btn-bk-color-touch-grayscale:      mix(@black, @def-btn-bk-color-grayscale, @def-mix-value-fallback);
 @def-btn-color-grayscale-checked:       @white;
 @def-btn-bk-color-grayscale-checked:    mix(@black, @def-btn-bk-color-grayscale, @def-mix-value-hint);
+
+// --------------------------------------------------
+// --------------------------------------------------
+// textfield
+
+@def-input-color:                       @def-text-color;
+@def-input-border-color:                @def-gray-hint;
+@def-input-border-color-hover:          @def-color-secondary;
+
+@def-input-transition:                  ~"border-color .25s linear";  // bool(false)|str 
+ 
+@def-input-additional-states:           error, warning;  // bool(false)|enum(,,,)   
+
+// --------------------------------------------------
+
+@def-input-color-error:                 @def-color-accent;
+@def-input-border-color-error:          @def-color-accent;
+
+@def-input-color-warning:               @def-color-primary;
+@def-input-border-color-warning:        @def-color-primary;
+

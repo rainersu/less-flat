@@ -62,6 +62,7 @@ module.exports = function(grunt) {
                 ]
             },
             dist: {
+				diff: true,
                 expand: true,
                 src: [
 					'jekyll_src/css/*.css',

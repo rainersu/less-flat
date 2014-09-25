@@ -1,2 +1,61 @@
 
+.int {
 
+	&:extend(
+		.ex-h4,
+		.ex-border-box,
+		.ex-inline-block,
+		.ex-ellipsis,
+		.ex-padding,
+		.ex-border-radius
+	);
+	
+    .placeholder({
+		color: @def-input-border-color;
+	});
+	
+	&,
+	&[readonly],
+	&[readonly]:focus {
+		background: @white;
+		color: @def-input-color;
+		border: @def-border-width solid @def-input-border-color;
+	}
+
+	&:focus  {
+		outline: 0;
+		color: @def-input-color;
+		border-color: @def-input-border-color-hover;
+	}
+	
+	& when not (@def-input-transition = false) {
+        transition: @def-input-transition;
+    }
+		
+}
+
+.mx-int-states() when not (@def-input-additional-states = false) {
+	@count: length(@def-input-additional-states);
+	.mx-int-state(@i) when (@i > 0) {
+		@state: extract(@def-input-additional-states, @i);
+		.int-@{state} {
+			color: ~"@{def-input-color-@{state}}";
+			border-color: ~"@{def-input-border-color-@{state}}";
+		}		
+		.mx-int-state(@i - 1);
+	}
+	.mx-int-state(@count);
+}
+.mx-int-states();
+
+& when (@def-disabled-grayscale = true) {
+	.int {
+		&[disabled] {
+			&,
+		    &:focus {
+				color: greyscale(@def-input-color);
+				border-color: greyscale(@def-input-border-color);
+			}
+		}
+	}
+}

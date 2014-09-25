@@ -94,25 +94,13 @@ legend {
 }
 
 button,
-select {
-    text-transform: none;
-}
-
-html input,
-button {
+select,
+input {
     &::-moz-focus-inner {
         border : 0;
         padding: 0;
-		outline: 0;
     }
-}
-
-.disabled,
-[disabled] {
-	html input&,
-	& {
-	    .ex-disabled();
-	}
+	text-transform: none;
 }
 
 input {
@@ -139,4 +127,21 @@ input {
             -webkit-appearance: none;
         }
     }
+}
+
+[readonly] {
+	   -moz-user-modify: read-only;
+	-webkit-user-modify: read-only;
+	    -moz-user-input: none;
+}
+
+.disabled,
+[disabled] {
+	html input&,
+	& {
+	    cursor: not-allowed;
+		-moz-user-input: none; 
+	    -moz-user-focus: ignore;
+	    .mx-opacity(@def-mix-value-hint);
+	}
 }

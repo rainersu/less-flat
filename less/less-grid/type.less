@@ -21,7 +21,7 @@
 	}
 }
 
-.grayscale {
+.weak {
 	&,
 	&.a {
 		&:extend(.ex-gray);
@@ -85,8 +85,8 @@ em {
 
 // --------------------------------------------------
 
-*::selection {
+.selection({
 	text-shadow: none;
 	color: @def-highlight-color;
 	background: @def-highlight-bk-color;
-}
+});
