@@ -30,19 +30,19 @@ module.exports = function(grunt) {
         clean: [
             'dist/js/**/*',
             'dist/css/**/*',
-            'jekyll_src/js/**/*',
-            'jekyll_src/css/**/*'
+            '_docs/js/**/*',
+            '_docs/css/**/*'
         ],
         
         less: {
             dist: {
                 files: [{
-                    'jekyll_src/css/less-grid.css': 'less/less-grid.less'                  
+                    '_docs/css/less-flat.css': 'less/less-flat.less'                  
                 },{
                     expand: true,
                     cwd: 'less/doc/',
                     src: ['*.less'],
-                    dest: 'jekyll_src/css/doc/',
+                    dest: '_docs/css/doc/',
                     ext: '.css' 
                 }]
             }
@@ -65,8 +65,8 @@ module.exports = function(grunt) {
 				diff: true,
                 expand: true,
                 src: [
-					'jekyll_src/css/*.css',
-					'jekyll_src/css/doc/*.css'
+					'_docs/css/*.css',
+					'_docs/css/doc/*.css'
 				]
             }
         },
@@ -77,7 +77,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 expand: true,
-                cwd: 'jekyll_src/css/',
+                cwd: '_docs/css/',
                 src: ['*.css', '!*.min.css'],
                 dest: 'dist/css/',
                 ext: '.min.css'             
@@ -91,12 +91,12 @@ module.exports = function(grunt) {
                     beautify: true
                 },
                 files: [{
-                    'jekyll_src/js/less-grid.js': ['js/less-grid.js']
+                    '_docs/js/less-flat.js': ['js/less-flat.js']
                 },{
                     expand: true,
                     cwd: 'js/doc/',
                     src: ['*.js', '!*.min.js'],
-                    dest: 'jekyll_src/js/doc/'       
+                    dest: '_docs/js/doc/'       
                 }]
             },
             dist: {
@@ -107,7 +107,7 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'jekyll_src/js',
+                    cwd: '_docs/js',
                     src: ['*.js', '!*.min.js'],
                     dest: 'dist/js/',
                     ext: '.min.js' 
@@ -132,7 +132,7 @@ module.exports = function(grunt) {
                         'bower_libs/respond/dest/respond.min.js',
                         'bower_libs/jquery-1x/dist/jquery.min.js'
                     ],
-                    dest: 'jekyll_src/js/'                     
+                    dest: '_docs/js/'                     
                 }
             ]}
         }

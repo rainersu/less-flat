@@ -1,7 +1,7 @@
-less-grid
+less-flat
 =========
 
-A fast, lightweight, and powerful responsive grid system for modern web development. 
+A flat, fast, lightweight, and powerful responsive grid system for modern web development. 
 
 Getting Started
 ---------------

@@ -2,14 +2,14 @@ markdown:         redcarpet
 highlighter:      pygments
 
 permalink:        none
-source:           jekyll_src
+source:           _docs
 destination:      docs
 host:             0.0.0.0
 port:             1101
 encoding:         UTF-8
 baseurl:          /
-url:              https://github.com/rainersu/less-grid
+url:              https://github.com/rainersu/less-flat
 include:          [.htaccess]
 
 author:           Rainer Su
-trademark:        less-grid&trade;
+trademark:        less-flat&trade;

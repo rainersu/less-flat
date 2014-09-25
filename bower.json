@@ -3,7 +3,7 @@
 	"ignore": [
 		"**/.*",
 		"_config.*",
-		"jekyll_src",
+		"_docs",
 		"node_modules",
 		"bower_components",
 		"bower_libs",
@@ -14,8 +14,8 @@
 		"**/*.bak",
 		"gh_pages"
 	],
-	"name": "less-grid",
-	"description": "A fast, lightweight, and powerful responsive grid system for modern web development.",
+	"name": "less-flat",
+	"description": "A flat, fast, lightweight, and powerful responsive grid system for modern web development.",
 	"version": "0.0.1",
 	"keywords": [
 		"css",
@@ -27,7 +27,7 @@
 		"framework",
 		"web"
 	],
-	"homepage": "https://github.com/rainersu/less-grid",
+	"homepage": "https://github.com/rainersu/less-flat",
 	"author": {
 		"name": "Rainer Su",
 		"email": "rainersu@foxmail.com",
@@ -36,13 +36,13 @@
 	"licenses": [
 		{
 			"type": "MIT",
-			"url": "https://github.com/rainersu/less-grid/blob/master/LICENSE"
+			"url": "https://github.com/rainersu/less-flat/blob/master/LICENSE"
 		}
 	],
-	"title": "less-grid",
+	"title": "less-flat",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/rainersu/less-grid.git"
+		"url": "https://github.com/rainersu/less-flat.git"
 	},
 	"dependencies": {},
 	"devDependencies": {
