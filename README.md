@@ -1,7 +1,7 @@
 less-flat
 =========
 
-A flat, fast, lightweight, and powerful responsive grid system for modern web development. 
+A flat, responsive, comfortable, functional, fast, lightweight, and powerful front-end framework for modern web development. 
 
 Getting Started
 ---------------

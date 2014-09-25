@@ -1,6 +1,7 @@
 
-// 伪选择符(Pseudo-elements & Pseudo-classes)
-//============================================================================
+// --------------------------------------------------
+// --------------------------------------------------
+// pseudo-elements
 
 .selection(@rules) {
     &::-moz-selection {
@@ -13,8 +14,11 @@
     }
 }
 
-.placeholder(@rules) {
+// --------------------------------------------------
+// --------------------------------------------------
+// pseudo-elements
 
+.placeholder(@rules) {
     &:-ms-input-placeholder {
         @rules();
     }
@@ -22,15 +26,12 @@
         @rules();
 	}
     &::-moz-placeholder {
-        opacity: 1;  // https://github.com/twbs/bootstrap/pull/11526
+        opacity: 1;
         @rules();
     }
 }
 
 .fullscreen(@rules) {
-    &:fullscreen {
-        @rules();
-    }
     &:-ms-fullscreen {
         @rules();
     }
@@ -40,12 +41,23 @@
     &:-moz-fullscreen {
         @rules();
     }
+    &:fullscreen {
+        @rules();
+    }
 }
 
-// 属性(CSS Style Propeties)
-//============================================================================
-// 杂项(Misc)
-//--------------------------------------
+.read-write(@rules) {
+    &::-moz-read-write {
+        @rules();
+    }
+	&:read-write {
+		@rules();
+	}
+}
+
+// --------------------------------------------------
+// --------------------------------------------------
+// propeties
 
 .css-shorthand(@css; @ms; @rest...) {
     & when (@ms > 0) {

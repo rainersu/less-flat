@@ -1,14 +1,21 @@
 
 .int {
+	
+	font-size: @def-input-font-size;
+	resize: none;
+	-moz-resize: none;
 
 	&:extend(
-		.ex-h4,
 		.ex-border-box,
 		.ex-inline-block,
 		.ex-ellipsis,
 		.ex-padding,
 		.ex-border-radius
 	);
+	
+	textarea& {
+	    &:extend(.ex-auto-scroll);
+	}
 	
     .placeholder({
 		color: @def-input-border-color;
@@ -38,10 +45,16 @@
 	@count: length(@def-input-additional-states);
 	.mx-int-state(@i) when (@i > 0) {
 		@state: extract(@def-input-additional-states, @i);
-		.int-@{state} {
-			color: ~"@{def-input-color-@{state}}";
-			border-color: ~"@{def-input-border-color-@{state}}";
-		}		
+		.@{state} {
+			&,
+			.int {
+				color: ~"@{def-input-color-@{state}}";
+			}
+			.int,
+			.int& {
+				border-color: ~"@{def-input-border-color-@{state}}";
+			}
+		}	
 		.mx-int-state(@i - 1);
 	}
 	.mx-int-state(@count);

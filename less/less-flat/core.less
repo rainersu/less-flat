@@ -129,19 +129,60 @@ input {
     }
 }
 
-[readonly] {
-	   -moz-user-modify: read-only;
-	-webkit-user-modify: read-only;
-	    -moz-user-input: none;
+[disabled],
+.disabled {
+	-moz-user-input: disabled; 
+    -moz-user-focus: ignore;
+    -moz-user-modify: read-only;
+    -webkit-user-modify: read-only;	
+	cursor: not-allowed;
+	.mx-opacity(@def-mix-value-hint);
 }
 
-.disabled,
-[disabled] {
-	html input&,
-	& {
-	    cursor: not-allowed;
-		-moz-user-input: none; 
-	    -moz-user-focus: ignore;
-	    .mx-opacity(@def-mix-value-hint);
+::-ms-clear {
+	display: none;
+}
+
+.selection({
+	text-shadow: none;
+	color: @def-highlight-color;
+	background: @def-highlight-bk-color;
+});
+
+.break-word {
+	&:extend(.ex-break-word);
+}
+
+.ellipsis {
+    &:extend(.ex-ellipsis);
+}
+
+.beautify {
+    &:extend(
+		.ex-justify,
+		.ex-break-word
+	);
+}
+
+.accent {
+	&,
+	&.a {
+		&:extend(.ex-em);
 	}
+}
+
+.weak {
+	&,
+	&.a {
+		&:extend(.ex-gray);
+	}
+}
+		
+p,
+figure {
+    &:extend(.ex-no-margin);
+}
+
+.fl {
+	width: 100%;
 }

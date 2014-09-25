@@ -129,8 +129,7 @@ h6 {
 }
 .h4,
 h4,
-.btn,
-.int {
+.btn {
   font-size: 14px;
 }
 .h1,
@@ -159,8 +158,10 @@ h6,
 }
 html,
 textarea,
-pre {
+pre,
+textarea.int {
   overflow: auto;
+  white-space: normal;
 }
 .break-word,
 .beautify,
@@ -1330,21 +1331,32 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
-[readonly] {
+[disabled],
+.disabled {
+  -moz-user-input: disabled;
+  -moz-user-focus: ignore;
   -moz-user-modify: read-only;
   -webkit-user-modify: read-only;
-  -moz-user-input: none;
-}
-html input.disabled,
-html input[disabled],
-.disabled,
-[disabled] {
   cursor: not-allowed;
-  -moz-user-input: none;
-  -moz-user-focus: ignore;
   *zoom: 1;
   opacity: 0.26;
   filter: alpha(opacity=26);
+}
+::-ms-clear {
+  display: none;
+}
+::-moz-selection {
+  text-shadow: none;
+  color: #ffffff;
+  background: #95a5a6;
+}
+::selection {
+  text-shadow: none;
+  color: #ffffff;
+  background: #95a5a6;
+}
+.fl {
+  width: 100%;
 }
 sub,
 sup {
@@ -1363,18 +1375,8 @@ abbr[title] {
   border-bottom: 1px dotted;
 }
 mark {
-  color: #34495e;
-  background: #fdf7e0;
-}
-::-moz-selection {
-  text-shadow: none;
-  color: #34495e;
-  background: #fdf7e0;
-}
-::selection {
-  text-shadow: none;
-  color: #34495e;
-  background: #fdf7e0;
+  color: #ffffff;
+  background: #95a5a6;
 }
 .a,
 a {
@@ -1564,6 +1566,9 @@ q:after {
   background-color: #6b6b6b;
 }
 .int {
+  font-size: 12px;
+  resize: none;
+  -moz-resize: none;
   -webkit-transition: border-color .25s linear;
      -moz-transition: border-color .25s linear;
        -o-transition: border-color .25s linear;
@@ -1591,12 +1596,20 @@ q:after {
   color: #34495e;
   border-color: #1abc9c;
 }
-.int-warning {
+.warning,
+.warning .int {
   color: #34495e;
+}
+.warning .int,
+.int.warning {
   border-color: #34495e;
 }
-.int-error {
+.error,
+.error .int {
   color: #e74c3c;
+}
+.error .int,
+.int.error {
   border-color: #e74c3c;
 }
 .int[disabled],
@@ -1607,9 +1620,6 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-.block {
-  display: block;
 }
 .black {
   color: #000000;
