@@ -4,13 +4,14 @@
 	font-size: @def-input-font-size;
 	resize: none;
 	-moz-resize: none;
+	
 
 	&:extend(
-		.ex-border-box,
 		.ex-inline-block,
 		.ex-ellipsis,
 		.ex-padding,
-		.ex-border-radius
+		.ex-border-radius,
+		.ex-fullline
 	);
 	
 	textarea& {
@@ -41,25 +42,19 @@
 		
 }
 
-.mx-int-states() when not (@def-input-additional-states = false) {
-	@count: length(@def-input-additional-states);
-	.mx-int-state(@i) when (@i > 0) {
-		@state: extract(@def-input-additional-states, @i);
-		.@{state} {
-			&,
-			.int {
-				color: ~"@{def-input-color-@{state}}";
-			}
-			.int,
-			.int& {
-				border-color: ~"@{def-input-border-color-@{state}}";
-			}
-		}	
-		.mx-int-state(@i - 1);
+.invalid {
+	color: @def-input-color-invalid;
+	.int& {
+		border-color: @def-input-border-color-invalid;
 	}
-	.mx-int-state(@count);
 }
-.mx-int-states();
+
+.valid {
+	color: @def-input-color-valid;
+	.int& {
+		border-color: @def-input-border-color-valid;
+	}
+}
 
 & when (@def-disabled-grayscale = true) {
 	.int {

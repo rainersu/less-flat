@@ -1,4 +1,37 @@
 
+.fl {
+	&:extend(.ex-fullline);
+}
+
+.break-word {
+	&:extend(.ex-break-word);
+}
+
+.ellipsis {
+    &:extend(.ex-ellipsis);
+}
+
+.beautify {
+    &:extend(
+		.ex-justify,
+		.ex-break-word
+	);
+}
+
+.accent {
+	&,
+	&.a {
+		&:extend(.ex-em);
+	}
+}
+
+.weak {
+	&,
+	&.a {
+		&:extend(.ex-gray);
+	}
+}
+
 small {
     &:extend(.ex-h5);
 }

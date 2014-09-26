@@ -1,10 +1,7 @@
 
 ul,
 ol {
-	&:extend(
-		.ex-no-margin,
-		.ex-list-indent
-	);	
+	&:extend(.ex-list-indent);	
 }
 
 .vl,
@@ -18,20 +15,14 @@ menu {
 .hl,
 .vl,
 menu {
-	&:extend(
-		.ex-no-margin,
-		.ex-no-padding
-	);
+	&:extend(.ex-no-padding);
 	list-style: none;
 	list-style-image: none;
 }
 
 .nl {
 	a {
-		&:extend(
-			.ex-block,
-			.ex-border-box
-		);
+		&:extend(.ex-block);
 	}
 }
 
@@ -44,10 +35,7 @@ menu {
 		*float: left;
 		*clear: left;
 		 width: 100%;
-		&:extend(
-			.ex-block,
-			.ex-border-box
-		);
+		&:extend(.ex-block);
 	}
 }
 

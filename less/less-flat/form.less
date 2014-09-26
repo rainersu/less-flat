@@ -1,0 +1,91 @@
+
+input,
+button,
+select,
+textarea {
+	&:extend(
+		.ex-reset,
+		.ex-inline-block
+	);
+}
+
+optgroup {
+    &:extend(
+		.ex-reset,
+		.ex-b
+	);
+}
+
+textarea {
+    &:extend(.ex-auto-scroll);
+}
+
+input {
+    &[type="checkbox"],
+    &[type="radio"]  {
+        padding: 0;
+        *height: 13px;
+        *width : 13px;
+    }
+    &[type="search"] {
+        -webkit-appearance: textfield;
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-decoration {
+            -webkit-appearance: none;
+        }
+    }
+    &[type="number"] {
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            height: auto;
+        }
+    }
+}
+
+[hidden]{
+    &:extend(.ex-none);
+}
+
+[disabled],
+.disabled {
+	-moz-user-input: disabled; 
+    -moz-user-focus: ignore;
+    -moz-user-modify: read-only;
+    -webkit-user-modify: read-only;	
+	cursor: not-allowed;
+	.mx-opacity(@def-mix-value-hint);
+}
+
+:invalid {
+	box-shadow: none;
+}
+:-moz-submit-invalid {
+	box-shadow: none;
+}
+:-moz-ui-invalid {
+	box-shadow: none;
+}
+
+::-moz-focus-inner {
+    border : 0;
+    padding: 0;
+}
+
+::-ms-clear {
+	display: none;
+}
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+    &:extend(
+        .ex-no-border,
+        .ex-no-padding
+    );
+    white-space: normal;
+    *margin-left: -7px;
+}

@@ -26,8 +26,7 @@
 .td {
     &:extend(
         .ex-float,
-		.ex-no-padding,
-        .ex-border-box
+		.ex-no-padding
     );
     zoom: 1;
     min-height: 1;
@@ -44,10 +43,7 @@
 }
 
 .tb {
-    &:extend(
-		.ex-border-box,
-		.ex-center-block
-	);
+    &:extend(.ex-center-block);
 }
 
 .hr {
@@ -66,10 +62,8 @@ hr {
 		.ex-hide,
 		.ex-no-font,
 		.ex-no-border,
-		.ex-no-padding,
-		.ex-border-box
+		.ex-no-padding
 	);
-	margin:  0;
 	*margin: -7px 0;
 	height:  @def-grid-gap-vsize;
 }

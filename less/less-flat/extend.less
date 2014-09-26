@@ -28,6 +28,10 @@
 // --------------------------------------------------
 // display & visibility
 
+.ex-fullline {
+		width: 100%;
+}
+
 .ex-inline-block {
     vertical-align: middle;
     display: inline-block;
@@ -68,6 +72,15 @@
 
 // --------------------------------------------------
 // font
+
+.ex-reset {
+	font-style: normal;
+	text-transform: none;
+    color: @def-text-color;
+    font-size: @def-font-size;
+    font-family: @def-font-face;
+    line-height: @def-line-height;
+}
 
 .ex-em {
 	color: @def-color-accent;
@@ -163,10 +176,6 @@
     border: 0;
 }
 
-.ex-no-margin  {
-    margin: 0;
-}
-
 .ex-no-padding {
     padding: 0;
 }
@@ -187,17 +196,6 @@
 
 .ex-transparent {
     background: transparent;
-}
-
-// --------------------------------------------------
-// box-sizing
-
-.ex-border-box  {
-    box-sizing:  border-box;
-}
-
-.ex-content-box {
-    box-sizing: content-box;
 }
 
 // --------------------------------------------------
