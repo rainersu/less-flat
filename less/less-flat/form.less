@@ -28,6 +28,7 @@ input {
         *width : 13px;
     }
     &[type="search"] {
+		&:extend(.ex-border-box);
         -webkit-appearance: textfield;
         &::-webkit-search-cancel-button,
         &::-webkit-search-decoration {
@@ -48,12 +49,10 @@ input {
 
 [disabled],
 .disabled {
-	-moz-user-input: disabled; 
     -moz-user-focus: ignore;
-    -moz-user-modify: read-only;
-    -webkit-user-modify: read-only;	
-	cursor: not-allowed;
-	.mx-opacity(@def-mix-value-hint);
+	-moz-user-input: disabled; 
+	cursor: not-allowed@it;
+	.opacity(@def-mix-value-hint);
 }
 
 :invalid {
@@ -69,6 +68,7 @@ input {
 ::-moz-focus-inner {
     border : 0;
     padding: 0;
+	outline: 0;
 }
 
 ::-ms-clear {
@@ -76,16 +76,22 @@ input {
 }
 
 fieldset {
-    border: 1px solid #c0c0c0;
-    margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em;
+    &:extend(
+        .ex-padding-l,
+        .ex-border-radius-l
+    );
+	min-width: 0;
+	border: @def-border-width-m solid @def-gray-divider;
 }
 
 legend {
-    &:extend(
-        .ex-no-border,
-        .ex-no-padding
-    );
-    white-space: normal;
+	color: @def-color-secondary;
     *margin-left: -7px;
+    &:extend(
+		.ex-hn,
+		.ex-h3,
+        .ex-no-border,
+        .ex-padding-s,
+		.ex-ellipsis
+    );
 }

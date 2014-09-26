@@ -36,20 +36,16 @@
     vertical-align: middle;
     display: inline-block;
     *display: inline;
-    zoom: 1;
 }
 
 .ex-float {
 	display: table;
     *display: inline-block;
-    -display: inline;
-    zoom: 1;	
 }
 
 .ex-inline {
 	vertical-align: baseline;
     display: inline;
-    zoom: 1;
 }
 
 .ex-block {
@@ -62,12 +58,6 @@
 
 .ex-hide {
     visibility: hidden;
-}
-
-.ex-disabled {
-    cursor: not-allowed;
-    -moz-user-focus: ignore; 
-    .mx-opacity(@def-mix-value-hint);
 }
 
 // --------------------------------------------------
@@ -189,6 +179,12 @@
 
 .ex-list-indent {
 	padding: 0 0 0 2em;
+}
+
+.ex-border-box {
+	zoom: 1;
+	margin: 0;
+	box-sizing: border-box;
 }
 
 // --------------------------------------------------
