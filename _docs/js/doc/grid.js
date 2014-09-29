@@ -1,6 +1,6 @@
 !function($) {
     $(function() {
-        var aColSpan = $("<span />").prependTo($(".td").each(function() {
+        var aColSpan = $("<span />").prependTo($(".col").each(function() {
             var o = $(this);
             o.attr("title", o.prop("className"));
         })), fColSpan = function() {

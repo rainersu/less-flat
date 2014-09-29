@@ -5,8 +5,8 @@
 @opt-layout-list-index: 1;
 
 .br,
-.tr:before,
-.tr:after {
+.row:before,
+.row:after {
     content: ".";
     font: 0/0 serif;
     display: block;
@@ -17,31 +17,29 @@
 }
 
 .br,
-.tr:after {
+.row:after {
     clear:both;
 }
 
-.tr,
-.tr > li,
-.td {
+.row,
+.row > li,
+.col {
     &:extend(
         .ex-float,
-		.ex-no-padding
-    );
-    min-height: 1;
-    margin-left:   -@def-grid-gap-vsize;
-	margin-top:    -@def-grid-gap-vsize;
+		.ex-no-padding,
+		.ex-row
+    ); 
 }
 
-.tr > li,
-.td {
-    &:extend(.ex-relative);
-    float: left;
-    margin-left:    @def-grid-gap-vsize;
-	margin-top:     @def-grid-gap-vsize;
+.row > li,
+.col {
+    &:extend(
+		.ex-relative,
+		.ex-col
+	);
 }
 
-.tb {
+.box {
     &:extend(.ex-center-block);
 }
 
@@ -78,7 +76,7 @@ hr {
         @fix_width: @width + @gap-width * 2;
         @push-size: @width + @gap-width;
         
-        .td@{col-index} {
+        .col@{col-index} {
             width: @width;
         }
         & when (@col-index < @col-count) {
@@ -143,6 +141,35 @@ hr {
 
 & when (@def-responsive = true) {
     .mi-page(@opt-layout-count + 1);
+}
+
+& when (@def-fluid-grid-support = true) {
+	
+	.rowx,
+	.rowx > li {
+	    &:extend(
+	        .ex-float,
+			.ex-no-padding,
+			.ex-row
+	    );	
+	}
+	
+	.rowx {
+		&:extend(.ex-fullline);
+	}
+
+	//.rowx,
+	.rowx > li,
+	.rowx > .col {
+	    margin-left:  0;	
+	}
+	
+	.rowx > li,
+	.rowx > .col {
+	    width: 50%;
+		padding-left: @def-grid-gap-hsize;	
+	}
+
 }
 
 @media screen and (max-width: 400px) {

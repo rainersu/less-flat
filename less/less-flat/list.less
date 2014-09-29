@@ -28,14 +28,18 @@ menu {
 
 .ll {
 	> li {
-		 width: 100%;
+		&:extend(.ex-fullline);
+		//width: 100%;
 		*width: auto;
 	}	
 	a {
 		*float: left;
 		*clear: left;
-		 width: 100%;
-		&:extend(.ex-block);
+		 //width: 100%;
+		&:extend(
+			.ex-fullline,
+			.ex-block
+		);
 	}
 }
 

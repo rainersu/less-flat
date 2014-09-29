@@ -1,7 +1,7 @@
 
 @import "demo";
 
-.tb {
+.box {
 	color: @white;
     &:extend(
 		.ex-h6,
@@ -9,43 +9,43 @@
 	);
 }
 
-.td {
+.col {
 	min-height:  @def-grid-gap-vsize;
 	line-height:  @def-grid-gap-vsize;
 }
 
 #grid01 {
-    .td {
+    .col {
         &:extend(.turquoise-bc);
     }
 }
 
 #grid02 {
-    .td {
+    .col {
         &:extend(.emerald-bc);
     }
 }
 
 #grid03 {
-    .td {
+    .col {
         &:extend(.carrot-bc);
     }
 }
 
 #grid04 {
-    .td {
+    .col {
         &:extend(.peter-river-bc);
-        .td {
+        .col {
             &:extend(.orange-bc);
-            .td {
-                &:extend(.carrot-bc);
+            .col {
+                &:extend(.alizarin-bc);
             }
         }
     }
 }
 
 #grid05 {
-    .td {
+    .col {
         &:extend(.peter-river-bc);
     }
     [class*=push] {
